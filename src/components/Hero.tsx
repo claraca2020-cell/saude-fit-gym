@@ -85,20 +85,20 @@ export function Hero() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="mx-auto flex max-w-[1400px] flex-wrap justify-center gap-4 px-6 py-10 md:px-12"
+        className="mx-auto flex max-w-[1400px] flex-row flex-nowrap justify-center gap-2 px-4 py-8 sm:gap-3 sm:px-6 md:gap-4 md:px-12 md:py-10"
       >
         {STATS.map((stat) => (
           <div
             key={stat.label}
-            className="flex flex-col gap-1 rounded-sm border border-[var(--color-border)] px-7 py-5 transition-colors duration-200 hover:border-[var(--color-accent)] active:border-[var(--color-accent)]"
+            className="flex min-w-0 flex-1 flex-col items-center gap-1 rounded-sm border border-[var(--color-border)] px-2 py-3 text-center transition-colors duration-200 hover:border-[var(--color-accent)] active:border-[var(--color-accent)] sm:px-5 sm:py-4 md:max-w-[220px] md:flex-initial md:items-start md:px-7 md:py-5 md:text-left"
           >
             <p
               className={stat.highlight ? 'text-[var(--color-accent)]' : 'text-[var(--color-ink)]'}
-              style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.75rem' }}
+              style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 'clamp(1.05rem, 4.5vw, 1.75rem)' }}
             >
               {stat.value}
             </p>
-            <p className="text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)]">
+            <p className="text-[0.62rem] uppercase leading-tight tracking-[0.05em] text-[var(--color-text-muted)] sm:text-xs sm:tracking-[0.15em]">
               {stat.label}
             </p>
           </div>
