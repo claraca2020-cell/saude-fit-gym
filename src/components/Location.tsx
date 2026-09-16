@@ -34,15 +34,15 @@ export function Location() {
           </div>
         </div>
 
-        <div ref={ref} className="reveal-group grid gap-4 md:grid-cols-2">
+        <div ref={ref} className="reveal-group grid grid-cols-2 gap-2 sm:gap-4">
           <div className="overflow-hidden rounded-sm border border-[var(--color-border)]">
-            <p className="border-b border-[var(--color-border)] bg-[var(--color-bg-card)] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
+            <p className="border-b border-[var(--color-border)] bg-[var(--color-bg-card)] px-2 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.1em] text-[var(--color-text-muted)] sm:px-4 sm:py-2.5 sm:text-xs sm:tracking-[0.2em]">
               Google Maps
             </p>
             <iframe
               title="Localização da Saúde Fit Gym no Google Maps"
               src={MAPS_EMBED_SRC}
-              className="h-[320px] w-full md:h-[420px]"
+              className="h-[190px] w-full sm:h-[320px] md:h-[420px]"
               style={{ filter: 'invert(92%) hue-rotate(180deg) contrast(85%) brightness(0.9)' }}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -50,24 +50,25 @@ export function Location() {
           </div>
 
           <div className="overflow-hidden rounded-sm border border-[var(--color-border)]">
-            <div className="flex items-center justify-between border-b border-[var(--color-border)] bg-[var(--color-bg-card)] px-4 py-2.5">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
+            <div className="flex items-center justify-between border-b border-[var(--color-border)] bg-[var(--color-bg-card)] px-2 py-1.5 sm:px-4 sm:py-2.5">
+              <p className="text-[0.6rem] font-semibold uppercase tracking-[0.1em] text-[var(--color-text-muted)] sm:text-xs sm:tracking-[0.2em]">
                 Waze
               </p>
               <a
                 href={WAZE_OPEN_URL}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Abrir no Waze"
                 className="flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.1em] text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent-soft)]"
               >
-                Abrir no Waze
+                <span className="hidden sm:inline">Abrir no Waze</span>
                 <ExternalLink size={12} />
               </a>
             </div>
             <iframe
               title="Localização da Saúde Fit Gym no Waze"
               src={WAZE_EMBED_SRC}
-              className="h-[320px] w-full md:h-[420px]"
+              className="h-[190px] w-full sm:h-[320px] md:h-[420px]"
               loading="lazy"
               allowFullScreen
             />
