@@ -1,5 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 
+const WHATSAPP_URL = 'https://wa.me/5561984010700'
+
 export function CtaStrip() {
   return (
     <section className="bg-[var(--color-accent)] py-14 md:py-16 text-[var(--color-bg-main)]">
@@ -12,7 +14,9 @@ export function CtaStrip() {
         </h2>
 
         <a
-          href="#planos"
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noreferrer"
           className="group flex items-center gap-2 rounded-sm bg-[var(--color-bg-main)] px-8 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-ink)] transition-colors duration-200 hover:bg-[var(--color-ink)] hover:text-[var(--color-bg-main)]"
         >
           Quero me matricular
