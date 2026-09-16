@@ -50,26 +50,30 @@ export function Testimonials() {
           </div>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {REVIEWS.map((review) => (
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-6 md:grid-cols-3">
+          {REVIEWS.map((review, i) => {
+            const mobileOrder = i === 2 ? 'order-1' : i === 0 ? 'order-2' : 'order-3'
+            const mobileSpan = i === 1 ? 'col-span-2' : ''
+            return (
             <div
               key={review.name}
-              className="flex flex-col rounded-sm border border-[var(--color-border)] bg-[var(--color-bg-card)] p-8"
+              className={`flex flex-col rounded-sm border border-[var(--color-border)] bg-[var(--color-bg-card)] p-4 sm:p-8 ${mobileOrder} ${mobileSpan} md:order-none md:col-span-1`}
             >
               <div className="flex gap-0.5 text-[var(--color-accent)]">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={14} fill="currentColor" strokeWidth={0} />
+                {Array.from({ length: 5 }).map((_, si) => (
+                  <Star key={si} size={14} fill="currentColor" strokeWidth={0} />
                 ))}
               </div>
-              <p className="mt-5 flex-1 text-sm leading-relaxed text-[var(--color-ink)]/85">
+              <p className="mt-3 flex-1 text-xs leading-relaxed text-[var(--color-ink)]/85 sm:mt-5 sm:text-sm">
                 "{review.text}"
               </p>
-              <div className="mt-6 border-t border-[var(--color-border)] pt-4">
-                <p className="text-sm font-semibold text-[var(--color-ink)]">{review.name}</p>
-                <p className="text-xs text-[var(--color-text-muted)]">{review.time}</p>
+              <div className="mt-3 border-t border-[var(--color-border)] pt-3 sm:mt-6 sm:pt-4">
+                <p className="text-xs font-semibold text-[var(--color-ink)] sm:text-sm">{review.name}</p>
+                <p className="text-[0.65rem] text-[var(--color-text-muted)] sm:text-xs">{review.time}</p>
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>
