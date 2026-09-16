@@ -28,8 +28,11 @@ export function Benefits() {
             className="mt-4 text-4xl leading-tight text-[var(--color-ink)] md:text-5xl"
             style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
           >
-            Estrutura completa para te atender.
+            Mais completa. Mais perto de você.
           </h2>
+          <p className="mt-4 max-w-md text-sm text-[var(--color-text-muted)]">
+            A academia mais bem avaliada do Riacho Fundo I, com estrutura completa e treino sob medida.
+          </p>
 
           <div className="mt-8 flex items-start gap-3 rounded-sm bg-[var(--color-bg-card)] p-5 shadow-[0_1px_0_var(--color-border)]">
             <ShieldCheck className="mt-0.5 shrink-0 text-[var(--color-accent)]" size={22} />
