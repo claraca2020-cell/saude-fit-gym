@@ -1,7 +1,7 @@
-import { FacebookIcon } from './FacebookIcon'
-import { InstagramIcon } from './InstagramIcon'
-import { WhatsAppIcon } from './WhatsAppIcon'
 import logoSaudeFit from '../assets/brand/logo-saudefit.png'
+import iconInstagram from '../assets/brand/icon-instagram.png'
+import iconFacebook from '../assets/brand/icon-facebook.png'
+import iconWhatsapp from '../assets/brand/icon-whatsapp.png'
 
 const INSTAGRAM_URL = 'https://www.instagram.com/saudefitgym/'
 const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61567696081568&locale=pt_BR'
@@ -19,27 +19,27 @@ export function Footer() {
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram da Saúde Fit Gym"
-            className="text-[var(--color-ink)] transition-colors duration-300 hover:text-[var(--color-accent)]"
+            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
           >
-            <InstagramIcon size={26} />
+            <img src={iconInstagram} alt="" className="h-[26px] w-[26px]" />
           </a>
           <a
             href={FACEBOOK_URL}
             target="_blank"
             rel="noreferrer"
             aria-label="Facebook da Saúde Fit Gym"
-            className="text-[var(--color-ink)] transition-colors duration-300 hover:text-[var(--color-accent)]"
+            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
           >
-            <FacebookIcon size={26} />
+            <img src={iconFacebook} alt="" className="h-[26px] w-[26px]" />
           </a>
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
             aria-label="Falar no WhatsApp"
-            className="text-[var(--color-ink)] transition-colors duration-300 hover:text-[var(--color-accent)]"
+            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
           >
-            <WhatsAppIcon size={26} />
+            <img src={iconWhatsapp} alt="" className="h-[26px] w-[26px]" />
           </a>
         </div>
 
