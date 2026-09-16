@@ -18,7 +18,7 @@ export function Benefits() {
   const ref = useRevealOnScroll<HTMLDivElement>()
 
   return (
-    <section className="border-t border-[var(--color-border)] py-14 md:py-20">
+    <section className="border-t border-[var(--color-border)] pt-10 pb-14 md:pt-12 md:pb-20">
       <div className="mx-auto grid max-w-[1400px] gap-16 px-6 md:grid-cols-[0.9fr_1.1fr] md:px-12">
         <div>
           <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-accent)]">

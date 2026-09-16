@@ -3,13 +3,13 @@ import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
 
 const MAPS_EMBED_SRC =
   'https://www.google.com/maps?q=Sa%C3%BAde+Fit+GYM+-+Academia+Riacho+Fundo+1&output=embed'
-const WAZE_EMBED_SRC = 'https://embed.waze.com/iframe?zoom=16&lat=-15.890847&lon=-48.013237&ct=livemap'
+const WAZE_EMBED_SRC = 'https://embed.waze.com/iframe?zoom=16&lat=-15.890847&lon=-48.013237&pin=1&ct=livemap'
 
 export function Location() {
   const ref = useRevealOnScroll<HTMLDivElement>()
 
   return (
-    <section id="ambiente" className="border-t border-[var(--color-border)] py-14 md:py-20">
+    <section id="ambiente" className="border-t border-[var(--color-border)] pt-10 pb-14 md:pt-12 md:pb-20">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
