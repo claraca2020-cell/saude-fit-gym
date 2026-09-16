@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Bike, Dumbbell, Flame, Flower2, PartyPopper, Zap } from 'lucide-react'
+import { Bike, Dumbbell, Flame, PartyPopper, Zap } from 'lucide-react'
+import { PilatesMatIcon } from './PilatesMatIcon'
 import { GROUP_CLASS_SLIDES, GroupClassesCarousel } from './GroupClassesCarousel'
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
 
@@ -25,7 +26,7 @@ const CLASSES = [
   { icon: Zap, name: 'Cross Training', description: 'Treinos funcionais de alta intensidade em grupo.', slideLabel: 'Cross & Flux Training' },
   { icon: PartyPopper, name: 'Forró', description: 'Aula coletiva que une ritmo, tradição e diversão.', slideLabel: 'Forró' },
   { icon: Bike, name: 'Bike Indoor', description: 'Aulas de ciclismo indoor com música e energia.', slideLabel: 'Bike Indoor' },
-  { icon: Flower2, name: 'Pilates', description: 'Fortalecimento, postura e consciência corporal.', slideLabel: 'Pilates' },
+  { icon: PilatesMatIcon, name: 'Pilates', description: 'Fortalecimento, postura e consciência corporal.', slideLabel: 'Pilates' },
   { icon: Flame, name: 'Flux Training', description: 'Treino funcional fluido, do aquecimento ao ápice.', slideLabel: 'Cross & Flux Training' },
 ]
 

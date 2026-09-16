@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 const NAV_LINKS = [
   { label: 'Aulas coletivas', href: '#aulas-coletivas' },
-  { label: 'Ambiente', href: '#ambiente' },
+  { label: 'Localização', href: '#ambiente' },
   { label: 'Planos', href: '#planos' },
   { label: 'Perguntas', href: '#faq' },
 ]
@@ -22,7 +22,7 @@ function Logo({ className = '' }: { className?: string }) {
           Fit
         </span>
       </span>
-      <span className="text-[0.6rem] font-medium uppercase leading-none tracking-[0.25em] text-[var(--color-ink)]">
+      <span className="text-xs md:text-sm font-medium uppercase leading-none tracking-[0.25em] text-[var(--color-ink)]">
         Gym
       </span>
     </a>
@@ -42,21 +42,15 @@ export function Header() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-[1000] border-b border-white/5 bg-[rgba(15,15,15,0.4)] py-[15px] backdrop-blur-[10px]">
-        <div className="relative mx-auto hidden max-w-[1400px] items-center px-6 md:flex md:px-12">
-          <Logo className="absolute left-1 top-0 md:left-2" />
+        <Logo className="!hidden absolute left-3 top-1/2 -translate-y-1/2 md:!flex md:left-6" />
 
+        <div className="relative mx-auto hidden max-w-[1400px] items-center px-6 md:flex md:px-12">
           <nav className="mx-auto flex items-center gap-10">
             {NAV_LINKS.map((link) => (
               <a key={link.href} href={link.href} className={NAV_LINK_CLASS}>
                 {link.label}
               </a>
             ))}
-            <a
-              href="#planos"
-              className="text-[14px] font-semibold uppercase tracking-[1px] text-white transition-colors duration-300 hover:text-[var(--color-accent)]"
-            >
-              Matricule-se
-            </a>
           </nav>
         </div>
 
@@ -113,16 +107,6 @@ export function Header() {
                   {link.label}
                 </motion.a>
               ))}
-              <motion.a
-                href="#planos"
-                onClick={() => setIsMenuOpen(false)}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 + NAV_LINKS.length * 0.07, ease: 'easeOut' }}
-                className="btn-primary mt-8 flex w-fit items-center gap-2 rounded-sm px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em]"
-              >
-                Matricule-se
-              </motion.a>
             </nav>
           </motion.div>
         )}

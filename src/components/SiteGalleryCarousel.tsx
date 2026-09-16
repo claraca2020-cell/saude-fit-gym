@@ -29,7 +29,7 @@ export function SiteGalleryCarousel() {
   const current = SLIDES[index]
 
   return (
-    <section className="border-t border-[var(--color-border)] py-24 md:py-32">
+    <section id="conheca-o-espaco" className="border-t border-[var(--color-border)] py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <p className="text-sm font-bold uppercase tracking-[0.35em] text-[var(--color-accent)]">
           Conheça o espaço

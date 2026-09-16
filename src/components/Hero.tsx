@@ -3,7 +3,7 @@ import { ArrowRight, Star } from 'lucide-react'
 import heroImage from '../assets/photos/capa-titulo.jpg'
 
 const STATS = [
-  { value: '2 mil m²', label: 'De estrutura completa', highlight: true },
+  { value: '1 mil m²', label: 'De estrutura completa', highlight: true },
   { value: '6', label: 'Modalidades inclusas', highlight: false },
   { value: '7 dias', label: 'Aberto sáb. e dom.', highlight: false },
 ]
@@ -11,7 +11,7 @@ const STATS = [
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="relative flex min-h-[820px] flex-col justify-center md:min-h-[920px]">
+      <div className="relative flex min-h-[680px] flex-col justify-center md:min-h-[760px]">
         <img
           src={heroImage}
           alt="Fachada da Saúde Fit Gym"
@@ -26,7 +26,7 @@ export function Hero() {
           }}
         />
 
-        <div className="relative mx-auto w-full max-w-[1400px] px-6 pt-[19rem] pb-16 text-center md:px-12 md:pt-[21rem] md:pb-20">
+        <div className="relative mx-auto w-full max-w-[1400px] px-6 pt-[19rem] pb-4 text-center md:px-12 md:pt-[21rem] md:pb-6">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -71,7 +71,7 @@ export function Hero() {
               />
             </a>
             <a
-              href="#ambiente"
+              href="#conheca-o-espaco"
               className="rounded-sm border border-white/30 px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.25em] text-white transition-colors duration-200 hover:border-white hover:bg-white/5"
             >
               Conhecer o espaço
@@ -85,7 +85,7 @@ export function Hero() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="mx-auto flex max-w-[1400px] flex-row flex-nowrap justify-center gap-2 px-4 py-8 sm:gap-3 sm:px-6 md:gap-4 md:px-12 md:py-10"
+        className="mx-auto flex max-w-[1400px] flex-row flex-nowrap justify-center gap-2 px-4 pb-8 sm:gap-3 sm:px-6 md:gap-4 md:px-12 md:pb-10"
       >
         {STATS.map((stat) => (
           <div
