@@ -1,9 +1,11 @@
-import { MapPin } from 'lucide-react'
+import { ExternalLink, MapPin } from 'lucide-react'
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
 
 const MAPS_EMBED_SRC =
   'https://www.google.com/maps?q=Sa%C3%BAde+Fit+GYM+-+Academia+Riacho+Fundo+1&output=embed'
 const WAZE_EMBED_SRC = 'https://embed.waze.com/iframe?zoom=16&lat=-15.890847&lon=-48.013237&pin=1&ct=livemap'
+const WAZE_OPEN_URL =
+  'https://ul.waze.com/ul?place=ChIJybOmgzEsWpMRjlzYXnp5uc0&ll=-15.89084700%2C-48.01323710&navigate=yes'
 
 export function Location() {
   const ref = useRevealOnScroll<HTMLDivElement>()
@@ -48,9 +50,20 @@ export function Location() {
           </div>
 
           <div className="overflow-hidden rounded-sm border border-[var(--color-border)]">
-            <p className="border-b border-[var(--color-border)] bg-[var(--color-bg-card)] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
-              Waze
-            </p>
+            <div className="flex items-center justify-between border-b border-[var(--color-border)] bg-[var(--color-bg-card)] px-4 py-2.5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
+                Waze
+              </p>
+              <a
+                href={WAZE_OPEN_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.1em] text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent-soft)]"
+              >
+                Abrir no Waze
+                <ExternalLink size={12} />
+              </a>
+            </div>
             <iframe
               title="Localização da Saúde Fit Gym no Waze"
               src={WAZE_EMBED_SRC}

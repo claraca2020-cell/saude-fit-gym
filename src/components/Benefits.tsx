@@ -50,15 +50,15 @@ export function Benefits() {
             O que você encontra aqui
           </p>
 
-          <div ref={ref} className="reveal-group mt-6 grid gap-3 sm:grid-cols-2">
+          <div ref={ref} className="reveal-group mt-6 grid grid-cols-2 gap-2 sm:gap-3">
             {columns.map((column, colIndex) => (
-              <div key={colIndex} className="flex flex-col gap-3">
+              <div key={colIndex} className="flex flex-col gap-2 sm:gap-3">
                 {column.map((item) => (
                   <div
                     key={item}
-                    className="border border-[var(--color-border)] border-l-2 border-l-[var(--color-accent)] bg-[var(--color-bg-card)] px-4 py-3.5"
+                    className="border border-[var(--color-border)] border-l-2 border-l-[var(--color-accent)] bg-[var(--color-bg-card)] px-2.5 py-3 sm:px-4 sm:py-3.5"
                   >
-                    <p className="text-sm text-[var(--color-ink)]/85">{item}</p>
+                    <p className="text-xs leading-snug text-[var(--color-ink)]/85 sm:text-sm">{item}</p>
                   </div>
                 ))}
               </div>
