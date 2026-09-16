@@ -11,7 +11,7 @@ const STATS = [
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="relative flex min-h-[680px] flex-col justify-center md:min-h-[760px]">
+      <div className="relative flex min-h-[620px] flex-col justify-center md:min-h-[700px]">
         <img
           src={heroImage}
           alt="Fachada da Saúde Fit Gym"

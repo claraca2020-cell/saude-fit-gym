@@ -1,14 +1,14 @@
-import { CheckCircle2, ShieldCheck } from 'lucide-react'
+import { ShieldCheck } from 'lucide-react'
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
 
 const BENEFITS = [
-  'Banheiros com toda assistência, com secadores',
+  'Banheiros com toda assistência, com secadores e ar-condicionado',
   'Academia toda climatizada',
   'Aulas coletivas inclusas',
   'Aulas de bike indoor',
   'Armários',
   'Free pass para 1 convidado no fim de semana',
-  'Wi-fi grátis em todo o espaço',
+  'Treinos sempre sendo renovados',
   'Abertas aos sábados e domingos',
   'Treinos personalizados',
   'Conveniência com produtos fit',
@@ -17,21 +17,24 @@ const BENEFITS = [
 export function Benefits() {
   const ref = useRevealOnScroll<HTMLDivElement>()
 
+  const midpoint = Math.ceil(BENEFITS.length / 2)
+  const columns = [BENEFITS.slice(0, midpoint), BENEFITS.slice(midpoint)]
+
   return (
-    <section className="border-t border-[var(--color-border)] pt-10 pb-14 md:pt-12 md:pb-20">
+    <section className="border-t border-[var(--color-border)] pt-10 pb-8 md:pt-12 md:pb-10">
       <div className="mx-auto grid max-w-[1400px] gap-16 px-6 md:grid-cols-[0.9fr_1.1fr] md:px-12">
         <div>
           <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-accent)]">
-            Treine conosco
+            Treine com a gente
           </p>
           <h2
             className="mt-4 text-4xl leading-tight text-[var(--color-ink)] md:text-5xl"
             style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
           >
-            Mais completa. Mais perto de você.
+            Estrutura completa para te atender.
           </h2>
           <p className="mt-4 max-w-md text-sm text-[var(--color-text-muted)]">
-            A academia mais bem avaliada do Riacho Fundo I, com estrutura completa e treino sob medida.
+            Tudo pensado para deixar seu treino mais confortável, completo e consistente.
           </p>
 
           <div className="mt-8 flex items-start gap-3 rounded-sm bg-[var(--color-bg-card)] p-5 shadow-[0_1px_0_var(--color-border)]">
@@ -42,16 +45,25 @@ export function Benefits() {
           </div>
         </div>
 
-        <div ref={ref} className="reveal-group grid gap-4 sm:grid-cols-2">
-          {BENEFITS.map((item) => (
-            <div
-              key={item}
-              className="flex min-h-[88px] items-center gap-3 rounded-sm border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5"
-            >
-              <CheckCircle2 className="shrink-0 text-[var(--color-accent)]" size={18} />
-              <p className="text-sm text-[var(--color-ink)]/85">{item}</p>
-            </div>
-          ))}
+        <div>
+          <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-text-muted)]">
+            O que você encontra aqui
+          </p>
+
+          <div ref={ref} className="reveal-group mt-6 grid gap-3 sm:grid-cols-2">
+            {columns.map((column, colIndex) => (
+              <div key={colIndex} className="flex flex-col gap-3">
+                {column.map((item) => (
+                  <div
+                    key={item}
+                    className="border border-[var(--color-border)] border-l-2 border-l-[var(--color-accent)] bg-[var(--color-bg-card)] px-4 py-3.5"
+                  >
+                    <p className="text-sm text-[var(--color-ink)]/85">{item}</p>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
