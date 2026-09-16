@@ -78,24 +78,24 @@ export function GroupClasses() {
           </p>
         </div>
 
-        <div ref={ref} className="reveal-group grid gap-px overflow-hidden rounded-sm bg-[var(--color-border)] sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={ref} className="reveal-group grid grid-cols-2 gap-px overflow-hidden rounded-sm bg-[var(--color-border)] lg:grid-cols-3">
           {CLASSES.map(({ icon: Icon, name, description, slideLabel }) => (
             <button
               key={name}
               type="button"
               onClick={() => jumpToSlide(slideLabel)}
-              className={`group bg-[var(--color-bg-card)] p-8 text-left transition-colors duration-300 hover:bg-[var(--color-bg-main)] ${
+              className={`group bg-[var(--color-bg-card)] p-4 text-left transition-colors duration-300 hover:bg-[var(--color-bg-main)] sm:p-8 ${
                 slideLabel ? 'cursor-pointer' : 'cursor-default'
               }`}
             >
-              <Icon className="text-[var(--color-accent)]" size={28} strokeWidth={1.5} />
+              <Icon className="h-6 w-6 text-[var(--color-accent)] sm:h-7 sm:w-7" strokeWidth={1.5} />
               <h3
-                className="mt-6 text-xl text-[var(--color-ink)]"
+                className="mt-3 text-base text-[var(--color-ink)] sm:mt-6 sm:text-xl"
                 style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
               >
                 {name}
               </h3>
-              <p className="mt-2 text-sm text-[var(--color-text-muted)]">{description}</p>
+              <p className="mt-1 text-xs text-[var(--color-text-muted)] sm:mt-2 sm:text-sm">{description}</p>
             </button>
           ))}
         </div>
