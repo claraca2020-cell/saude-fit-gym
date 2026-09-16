@@ -20,7 +20,7 @@ const REVIEWS = [
 
 export function Testimonials() {
   return (
-    <section className="border-t border-[var(--color-border)] py-24 md:py-32">
+    <section className="border-t border-[var(--color-border)] pt-12 pb-24 md:pt-14 md:pb-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
