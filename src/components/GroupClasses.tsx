@@ -21,6 +21,13 @@ const SCHEDULE = {
   ],
 } as const
 
+function parseClasses(classes: string) {
+  return classes.split(' · ').map((segment) => {
+    const match = segment.match(/^(\d{1,2}:\d{2})\s+(.+)$/)
+    return match ? { time: match[1], name: match[2] } : { time: '', name: segment }
+  })
+}
+
 const CLASSES = [
   { icon: Dumbbell, name: 'Musculação', description: 'Equipamentos completos para hipertrofia e força.' },
   { icon: Zap, name: 'Cross Training', description: 'Treinos funcionais de alta intensidade em grupo.', slideLabel: 'Cross & Flux Training' },
@@ -56,7 +63,7 @@ export function GroupClasses() {
   return (
     <section id="aulas-coletivas" className="border-t border-[var(--color-border)] bg-[var(--color-bg-card)] py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <div className="mb-16 max-w-xl">
+        <div className="mb-8 max-w-xl">
           <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-accent)]">
             Aulas coletivas
           </p>
@@ -103,17 +110,32 @@ export function GroupClasses() {
             Grade de horários
           </h3>
 
-          <div className="mt-6 grid gap-8 md:grid-cols-2">
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
             {Object.entries(SCHEDULE).map(([turno, days]) => (
-              <div key={turno} className="rounded-sm border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6">
+              <div key={turno} className="rounded-md border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6 md:p-7">
                 <p className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-accent)]">
                   Turno {turno}
                 </p>
-                <ul className="mt-4 divide-y divide-[var(--color-border)]">
+                <ul className="mt-5 divide-y divide-[var(--color-border)]">
                   {days.map((day) => (
-                    <li key={day.day} className="flex flex-col gap-1 py-3 sm:flex-row sm:items-center sm:justify-between">
-                      <span className="text-sm font-medium text-[var(--color-ink)]">{day.day}</span>
-                      <span className="text-sm text-[var(--color-text-muted)]">{day.classes}</span>
+                    <li
+                      key={day.day}
+                      className="-mx-2 flex flex-col gap-1.5 rounded-sm px-2 py-3.5 transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-accent)_8%,transparent)] sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+                    >
+                      <span
+                        className="text-sm font-semibold text-[var(--color-ink)] sm:w-36 sm:shrink-0"
+                        style={{ fontFamily: 'var(--font-display)' }}
+                      >
+                        {day.day}
+                      </span>
+                      <span className="flex flex-wrap gap-x-3 gap-y-1 text-sm sm:justify-end">
+                        {parseClasses(day.classes).map((c, i) => (
+                          <span key={i} className="whitespace-nowrap">
+                            <span className="font-bold text-[var(--color-accent)]">{c.time}</span>{' '}
+                            <span className="text-[var(--color-text-muted)]">{c.name}</span>
+                          </span>
+                        ))}
+                      </span>
                     </li>
                   ))}
                 </ul>

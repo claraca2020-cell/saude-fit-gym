@@ -29,7 +29,7 @@ export function SiteGalleryCarousel() {
   const current = SLIDES[index]
 
   return (
-    <section id="conheca-o-espaco" className="border-t border-[var(--color-border)] py-24 md:py-32">
+    <section id="conheca-o-espaco" className="border-t border-[var(--color-border)] pt-12 pb-24 md:pt-14 md:pb-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <p className="text-sm font-bold uppercase tracking-[0.35em] text-[var(--color-accent)]">
           Conheça o espaço
@@ -41,7 +41,7 @@ export function SiteGalleryCarousel() {
           Uma volta pela Saúde Fit Gym.
         </h2>
 
-        <div className="relative mt-12 overflow-hidden rounded-sm">
+        <div className="relative mt-8 overflow-hidden rounded-sm">
           <div className="relative aspect-[16/9] w-full md:aspect-[21/9]">
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
               <motion.img

@@ -1,5 +1,6 @@
 import { FacebookIcon } from './FacebookIcon'
 import { InstagramIcon } from './InstagramIcon'
+import logoSaudeFit from '../assets/brand/logo-saudefit.png'
 
 const INSTAGRAM_URL = 'https://www.instagram.com/saudefitgym/'
 const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61567696081568&locale=pt_BR'
@@ -7,10 +8,8 @@ const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61567696081568&loc
 export function Footer() {
   return (
     <footer className="border-t border-[var(--color-border)] py-10">
-      <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-6 text-center text-xs text-[var(--color-text-muted)] md:flex-row md:px-12 md:text-left">
-        <p style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }} className="text-sm text-[var(--color-ink)]">
-          Saúde Fit Gym
-        </p>
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center justify-items-center gap-4 px-6 text-center text-xs text-[var(--color-text-muted)] md:grid-cols-3 md:px-12">
+        <img src={logoSaudeFit} alt="Saúde Fit Gym" className="h-10 w-auto md:h-12 md:justify-self-start" />
 
         <div className="flex items-center justify-center gap-6">
           <a
@@ -33,7 +32,7 @@ export function Footer() {
           </a>
         </div>
 
-        <p>© {new Date().getFullYear()} Saúde Fit Gym — Riacho Fundo I, Brasília – DF</p>
+        <p className="md:justify-self-end">© {new Date().getFullYear()} Saúde Fit Gym — Riacho Fundo I, Brasília – DF</p>
       </div>
     </footer>
   )

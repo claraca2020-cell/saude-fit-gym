@@ -47,17 +47,20 @@ const FAQ_ITEMS = [
   },
   {
     question: 'Tem estacionamento?',
-    answer: 'Sim, temos espaço na frente da academia para bikes, motos e patinetes.',
+    answer: 'Sim, temos espaço na frente da academia para carros, bikes, motos e patinetes.',
   },
 ]
 
 export function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
+  const midpoint = Math.ceil(FAQ_ITEMS.length / 2)
+  const columns = [FAQ_ITEMS.slice(0, midpoint), FAQ_ITEMS.slice(midpoint)]
+
   return (
     <section id="faq" className="border-t border-[var(--color-border)] py-24 md:py-32">
-      <div className="mx-auto max-w-3xl px-6 md:px-12">
-        <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-accent)]">
+      <div className="mx-auto max-w-6xl px-6 md:px-12">
+        <p className="text-xs font-medium uppercase tracking-[0.35em] text-[var(--color-accent)]">
           Perguntas frequentes
         </p>
         <h2
@@ -67,36 +70,41 @@ export function Faq() {
           Tire suas dúvidas.
         </h2>
 
-        <div className="mt-12 divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
-          {FAQ_ITEMS.map((item, i) => {
-            const isOpen = openIndex === i
-            return (
-              <div key={item.question}>
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-6 py-6 text-left"
-                >
-                  <span className="text-base text-[var(--color-ink)] md:text-lg" style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>
-                    {item.question}
-                  </span>
-                  <ChevronDown
-                    size={20}
-                    className={`shrink-0 text-[var(--color-accent)] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
-                  />
-                </button>
-                <div
-                  className="grid overflow-hidden transition-all duration-300 ease-out"
-                  style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
-                >
-                  <div className="overflow-hidden">
-                    <p className="pb-6 text-sm text-[var(--color-text-muted)]">{item.answer}</p>
+        <div className="mt-10 grid gap-12 md:grid-cols-2 md:gap-x-24">
+          {columns.map((column, colIndex) => (
+            <div key={colIndex} className="divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
+              {column.map((item, i) => {
+                const globalIndex = colIndex === 0 ? i : midpoint + i
+                const isOpen = openIndex === globalIndex
+                return (
+                  <div key={item.question}>
+                    <button
+                      type="button"
+                      onClick={() => setOpenIndex(isOpen ? null : globalIndex)}
+                      aria-expanded={isOpen}
+                      className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                    >
+                      <span className="text-sm text-[var(--color-ink)] md:text-base" style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>
+                        {item.question}
+                      </span>
+                      <ChevronDown
+                        size={18}
+                        className={`shrink-0 text-[var(--color-accent)] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    <div
+                      className="grid overflow-hidden transition-all duration-300 ease-out"
+                      style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="pb-5 text-sm text-[var(--color-text-muted)] md:text-base">{item.answer}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            )
-          })}
+                )
+              })}
+            </div>
+          ))}
         </div>
       </div>
     </section>

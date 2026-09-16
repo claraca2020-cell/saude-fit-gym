@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import logoSaudeFit from '../assets/brand/logo-saudefit.png'
 
 const NAV_LINKS = [
   { label: 'Aulas coletivas', href: '#aulas-coletivas' },
@@ -13,18 +14,8 @@ const NAV_LINK_CLASS =
 
 function Logo({ className = '' }: { className?: string }) {
   return (
-    <a href="#top" className={`flex items-baseline gap-1.5 ${className}`}>
-      <span className="flex items-baseline" style={{ fontFamily: 'var(--font-display)' }}>
-        <span className="text-lg uppercase tracking-tight text-[var(--color-ink)] md:text-xl" style={{ fontWeight: 800 }}>
-          Saúde
-        </span>
-        <span className="text-lg uppercase tracking-tight text-[var(--color-ink)] md:text-xl" style={{ fontWeight: 400 }}>
-          Fit
-        </span>
-      </span>
-      <span className="text-xs md:text-sm font-medium uppercase leading-none tracking-[0.25em] text-[var(--color-ink)]">
-        Gym
-      </span>
+    <a href="#top" className={`flex items-center ${className}`}>
+      <img src={logoSaudeFit} alt="Saúde Fit Gym" className="h-12 w-auto md:h-16" />
     </a>
   )
 }
