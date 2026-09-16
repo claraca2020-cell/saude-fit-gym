@@ -33,7 +33,7 @@ export function Header() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-[1000] border-b border-white/5 bg-[rgba(15,15,15,0.4)] py-[15px] backdrop-blur-[10px]">
-        <Logo className="!hidden absolute left-3 top-1/2 -translate-y-1/2 md:!flex md:left-6" />
+        <Logo className="!hidden absolute left-3 top-1/2 -translate-y-[57%] md:!flex md:left-6" />
 
         <div className="relative mx-auto hidden max-w-[1400px] items-center px-6 md:flex md:px-12">
           <nav className="mx-auto flex items-center gap-10">
