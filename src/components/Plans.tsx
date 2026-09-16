@@ -230,7 +230,7 @@ function PlanColumn({
 
 export function Plans() {
   return (
-    <section id="planos" className="border-t border-[var(--color-border)] py-24 md:py-32">
+    <section id="planos" className="border-t border-[var(--color-border)] py-14 md:py-20">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <h2
           className="text-left text-3xl uppercase text-[var(--color-ink)] md:text-5xl"

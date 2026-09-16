@@ -61,7 +61,7 @@ export function GroupClasses() {
   }
 
   return (
-    <section id="aulas-coletivas" className="border-t border-[var(--color-border)] bg-[var(--color-bg-card)] py-24 md:py-32">
+    <section id="aulas-coletivas" className="border-t border-[var(--color-border)] bg-[var(--color-bg-card)] py-14 md:py-20">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <div className="mb-8 max-w-xl">
           <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-accent)]">

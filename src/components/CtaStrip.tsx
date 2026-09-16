@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react'
 
 export function CtaStrip() {
   return (
-    <section className="bg-[var(--color-accent)] py-20 text-[var(--color-bg-main)]">
+    <section className="bg-[var(--color-accent)] py-14 md:py-16 text-[var(--color-bg-main)]">
       <div className="mx-auto flex max-w-[1400px] flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-center md:px-12">
         <h2
           className="max-w-lg text-3xl uppercase leading-tight md:text-4xl"

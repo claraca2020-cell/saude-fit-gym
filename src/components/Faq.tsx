@@ -58,7 +58,7 @@ export function Faq() {
   const columns = [FAQ_ITEMS.slice(0, midpoint), FAQ_ITEMS.slice(midpoint)]
 
   return (
-    <section id="faq" className="border-t border-[var(--color-border)] py-24 md:py-32">
+    <section id="faq" className="border-t border-[var(--color-border)] py-14 md:py-20">
       <div className="mx-auto max-w-6xl px-6 md:px-12">
         <p className="text-xs font-medium uppercase tracking-[0.35em] text-[var(--color-accent)]">
           Perguntas frequentes
