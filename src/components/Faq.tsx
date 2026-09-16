@@ -70,7 +70,7 @@ export function Faq() {
           Tire suas dúvidas.
         </h2>
 
-        <div className="mt-10 grid gap-12 md:grid-cols-2 md:gap-x-24">
+        <div className="mt-6 grid grid-cols-2 gap-x-3 gap-y-2 sm:mt-10 sm:gap-x-12 sm:gap-y-12 md:gap-x-24">
           {columns.map((column, colIndex) => (
             <div key={colIndex} className="divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
               {column.map((item, i) => {
@@ -82,14 +82,16 @@ export function Faq() {
                       type="button"
                       onClick={() => setOpenIndex(isOpen ? null : globalIndex)}
                       aria-expanded={isOpen}
-                      className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                      className="flex w-full items-center justify-between gap-2 py-3 text-left sm:gap-4 sm:py-5"
                     >
-                      <span className="text-sm text-[var(--color-ink)] md:text-base" style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>
+                      <span
+                        className="text-xs text-[var(--color-ink)] sm:text-sm md:text-base"
+                        style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
+                      >
                         {item.question}
                       </span>
                       <ChevronDown
-                        size={18}
-                        className={`shrink-0 text-[var(--color-accent)] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                        className={`h-[14px] w-[14px] shrink-0 text-[var(--color-accent)] transition-transform duration-300 sm:h-[18px] sm:w-[18px] ${isOpen ? 'rotate-180' : ''}`}
                       />
                     </button>
                     <div
@@ -97,7 +99,9 @@ export function Faq() {
                       style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
                     >
                       <div className="overflow-hidden">
-                        <p className="pb-5 text-sm text-[var(--color-text-muted)] md:text-base">{item.answer}</p>
+                        <p className="pb-3 text-xs leading-snug text-[var(--color-text-muted)] sm:pb-5 sm:text-sm md:text-base">
+                          {item.answer}
+                        </p>
                       </div>
                     </div>
                   </div>

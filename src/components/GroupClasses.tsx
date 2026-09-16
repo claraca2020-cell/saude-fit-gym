@@ -110,25 +110,28 @@ export function GroupClasses() {
             Grade de horários
           </h3>
 
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-6">
             {Object.entries(SCHEDULE).map(([turno, days]) => (
-              <div key={turno} className="rounded-md border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6 md:p-7">
-                <p className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-accent)]">
+              <div
+                key={turno}
+                className="rounded-md border border-[var(--color-border)] bg-[var(--color-bg-card)] p-3 sm:p-6 md:p-7"
+              >
+                <p className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-[var(--color-accent)] sm:text-xs">
                   Turno {turno}
                 </p>
-                <ul className="mt-5 divide-y divide-[var(--color-border)]">
+                <ul className="mt-3 divide-y divide-[var(--color-border)] sm:mt-5">
                   {days.map((day) => (
                     <li
                       key={day.day}
-                      className="-mx-2 flex flex-col gap-1.5 rounded-sm px-2 py-3.5 transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-accent)_8%,transparent)] sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+                      className="-mx-1.5 flex flex-col gap-1 rounded-sm px-1.5 py-2 transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-accent)_8%,transparent)] sm:-mx-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4 sm:px-2 sm:py-3.5"
                     >
                       <span
-                        className="text-sm font-semibold text-[var(--color-ink)] sm:w-36 sm:shrink-0"
+                        className="text-xs font-semibold text-[var(--color-ink)] sm:w-36 sm:shrink-0 sm:text-sm"
                         style={{ fontFamily: 'var(--font-display)' }}
                       >
                         {day.day}
                       </span>
-                      <span className="flex flex-wrap gap-x-3 gap-y-1 text-sm sm:justify-end">
+                      <span className="flex flex-wrap gap-x-1.5 gap-y-0.5 text-xs sm:justify-end sm:gap-x-3 sm:gap-y-1 sm:text-sm">
                         {parseClasses(day.classes).map((c, i) => (
                           <span key={i} className="whitespace-nowrap">
                             <span className="font-bold text-[var(--color-accent)]">{c.time}</span>{' '}
