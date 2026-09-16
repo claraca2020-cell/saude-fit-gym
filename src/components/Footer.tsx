@@ -1,9 +1,11 @@
 import { FacebookIcon } from './FacebookIcon'
 import { InstagramIcon } from './InstagramIcon'
+import { WhatsAppIcon } from './WhatsAppIcon'
 import logoSaudeFit from '../assets/brand/logo-saudefit.png'
 
 const INSTAGRAM_URL = 'https://www.instagram.com/saudefitgym/'
 const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61567696081568&locale=pt_BR'
+const WHATSAPP_URL = 'https://wa.me/5561984010700'
 
 export function Footer() {
   return (
@@ -29,6 +31,15 @@ export function Footer() {
             className="text-[var(--color-ink)] transition-colors duration-300 hover:text-[var(--color-accent)]"
           >
             <FacebookIcon size={26} />
+          </a>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Falar no WhatsApp"
+            className="text-[var(--color-ink)] transition-colors duration-300 hover:text-[var(--color-accent)]"
+          >
+            <WhatsAppIcon size={26} />
           </a>
         </div>
 

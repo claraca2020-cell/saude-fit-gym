@@ -1,7 +1,4 @@
 import { ArrowRight } from 'lucide-react'
-import { WhatsAppIcon } from './WhatsAppIcon'
-
-const WHATSAPP_URL = 'https://wa.me/5561984010700'
 
 export function CtaStrip() {
   return (
@@ -14,25 +11,13 @@ export function CtaStrip() {
           Matricule-se agora e ganhe uma avaliação física gratuita.
         </h2>
 
-        <div className="flex items-center gap-3">
-          <a
-            href="#planos"
-            className="group flex items-center gap-2 rounded-sm bg-[var(--color-bg-main)] px-8 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-ink)] transition-colors duration-200 hover:bg-[var(--color-ink)] hover:text-[var(--color-bg-main)]"
-          >
-            Quero me matricular
-            <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
-          </a>
-
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Falar no WhatsApp"
-            className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-sm bg-[var(--color-bg-main)] text-[var(--color-accent)] transition-colors duration-200 hover:bg-[var(--color-ink)]"
-          >
-            <WhatsAppIcon size={22} />
-          </a>
-        </div>
+        <a
+          href="#planos"
+          className="group flex items-center gap-2 rounded-sm bg-[var(--color-bg-main)] px-8 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-ink)] transition-colors duration-200 hover:bg-[var(--color-ink)] hover:text-[var(--color-bg-main)]"
+        >
+          Quero me matricular
+          <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
+        </a>
       </div>
     </section>
   )
