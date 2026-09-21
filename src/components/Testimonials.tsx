@@ -24,7 +24,7 @@ export function Testimonials() {
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-accent)]">
+            <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-text-muted)]">
               Avaliações
             </p>
             <h2

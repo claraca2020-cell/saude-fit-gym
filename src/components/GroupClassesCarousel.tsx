@@ -46,7 +46,7 @@ export function GroupClassesCarousel({ index, direction, onGo, onSelect }: Group
 
           <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 md:p-10">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.25em] text-[var(--color-accent-soft)]">
+              <p className="text-xs font-medium uppercase tracking-[0.25em] text-[var(--color-text-muted)]">
                 {String(index + 1).padStart(2, '0')} / {String(GROUP_CLASS_SLIDES.length).padStart(2, '0')}
               </p>
               <h3

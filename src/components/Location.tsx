@@ -12,7 +12,7 @@ export function Location() {
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-accent)]">
+            <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-text-muted)]">
               Ambiente
             </p>
             <h2
@@ -24,7 +24,7 @@ export function Location() {
           </div>
 
           <div className="flex items-start gap-2 text-sm text-[var(--color-text-muted)] md:max-w-xs">
-            <MapPin className="mt-0.5 shrink-0 text-[var(--color-accent)]" size={18} />
+            <MapPin className="mt-0.5 shrink-0 text-[var(--color-ink)]" size={18} />
             <p>
               Col. Agrícola Sucupira, Lote 01 — Riacho Fundo I, Brasília – DF, 71827-620
             </p>

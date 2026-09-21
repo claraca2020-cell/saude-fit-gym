@@ -60,7 +60,7 @@ export function Faq() {
   return (
     <section id="faq" className="border-t border-[var(--color-border)] pt-10 pb-8 md:pt-12 md:pb-10">
       <div className="mx-auto max-w-6xl px-6 md:px-12">
-        <p className="text-xs font-medium uppercase tracking-[0.35em] text-[var(--color-accent)]">
+        <p className="text-xs font-medium uppercase tracking-[0.35em] text-[var(--color-text-muted)]">
           Perguntas frequentes
         </p>
         <h2
@@ -91,7 +91,7 @@ export function Faq() {
                         {item.question}
                       </span>
                       <ChevronDown
-                        className={`h-[14px] w-[14px] shrink-0 text-[var(--color-accent)] transition-transform duration-300 sm:h-[18px] sm:w-[18px] ${isOpen ? 'rotate-180' : ''}`}
+                        className={`h-[14px] w-[14px] shrink-0 text-[var(--color-ink)] transition-transform duration-300 sm:h-[18px] sm:w-[18px] ${isOpen ? 'rotate-180' : ''}`}
                       />
                     </button>
                     <div

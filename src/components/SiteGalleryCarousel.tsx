@@ -31,7 +31,7 @@ export function SiteGalleryCarousel() {
   return (
     <section id="conheca-o-espaco" className="border-t border-[var(--color-border)] pt-10 pb-8 md:pt-12 md:pb-10">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <p className="text-sm font-bold uppercase tracking-[0.35em] text-[var(--color-accent)]">
+        <p className="text-sm font-bold uppercase tracking-[0.35em] text-[var(--color-text-muted)]">
           Conheça o espaço
         </p>
         <h2
@@ -61,7 +61,7 @@ export function SiteGalleryCarousel() {
 
             <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 md:p-10">
               <div>
-                <p className="text-xs font-medium uppercase tracking-[0.25em] text-[var(--color-accent-soft)]">
+                <p className="text-xs font-medium uppercase tracking-[0.25em] text-[var(--color-text-muted)]">
                   {String(index + 1).padStart(2, '0')} / {String(SLIDES.length).padStart(2, '0')}
                 </p>
                 <h3

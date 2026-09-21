@@ -64,7 +64,7 @@ export function GroupClasses() {
     <section id="aulas-coletivas" className="border-t border-[var(--color-border)] bg-[var(--color-bg-card)] pt-10 pb-8 md:pt-12 md:pb-10">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <div className="mb-8 max-w-xl">
-          <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-accent)]">
+          <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-text-muted)]">
             Aulas coletivas
           </p>
           <h2
@@ -88,7 +88,7 @@ export function GroupClasses() {
                 slideLabel ? 'cursor-pointer' : 'cursor-default'
               }`}
             >
-              <Icon className="h-6 w-6 text-[var(--color-accent)] sm:h-7 sm:w-7" strokeWidth={1.5} />
+              <Icon className="h-6 w-6 text-[var(--color-ink)] sm:h-7 sm:w-7" strokeWidth={1.5} />
               <h3
                 className="mt-3 text-base text-[var(--color-ink)] sm:mt-6 sm:text-xl"
                 style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
@@ -116,14 +116,14 @@ export function GroupClasses() {
                 key={turno}
                 className="rounded-md border border-[var(--color-border)] bg-[var(--color-bg-card)] p-3 sm:p-6 md:p-7"
               >
-                <p className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-[var(--color-accent)] sm:text-xs">
+                <p className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-[var(--color-text-muted)] sm:text-xs">
                   Turno {turno}
                 </p>
                 <ul className="mt-3 divide-y divide-[var(--color-border)] sm:mt-5">
                   {days.map((day) => (
                     <li
                       key={day.day}
-                      className="-mx-1.5 flex flex-col gap-1 rounded-sm px-1.5 py-2 transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-accent)_8%,transparent)] sm:-mx-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4 sm:px-2 sm:py-3.5"
+                      className="-mx-1.5 flex flex-col gap-1 rounded-sm px-1.5 py-2 transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-ink)_8%,transparent)] sm:-mx-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4 sm:px-2 sm:py-3.5"
                     >
                       <span
                         className="text-xs font-semibold text-[var(--color-ink)] sm:w-36 sm:shrink-0 sm:text-sm"
@@ -134,7 +134,7 @@ export function GroupClasses() {
                       <span className="flex flex-wrap gap-x-1.5 gap-y-0.5 text-xs sm:justify-end sm:gap-x-3 sm:gap-y-1 sm:text-sm">
                         {parseClasses(day.classes).map((c, i) => (
                           <span key={i} className="whitespace-nowrap">
-                            <span className="font-bold text-[var(--color-accent)]">{c.time}</span>{' '}
+                            <span className="font-bold text-[var(--color-ink)]">{c.time}</span>{' '}
                             <span className="text-[var(--color-text-muted)]">{c.name}</span>
                           </span>
                         ))}

@@ -3,8 +3,8 @@ import { ArrowRight, Star } from 'lucide-react'
 import heroImage from '../assets/photos/capa-titulo.jpg'
 
 const STATS = [
-  { value: '1 mil m²', label: 'De estrutura completa', highlight: true },
-  { value: '6', label: 'Modalidades inclusas', highlight: false },
+  { value: 'Aberta', label: 'Nos feriados', highlight: true },
+  { value: '+100', label: 'Aulas coletivas/mês', highlight: false },
   { value: '7 dias', label: 'Aberto sáb. e dom.', highlight: false },
 ]
 
@@ -22,7 +22,7 @@ export function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(11,12,14,0.25) 0%, rgba(11,12,14,0.4) 50%, var(--color-bg-main) 97%)',
+              'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.4) 50%, var(--color-bg-main) 97%)',
           }}
         />
 
@@ -90,7 +90,7 @@ export function Hero() {
         {STATS.map((stat) => (
           <div
             key={stat.label}
-            className="flex min-w-0 flex-1 flex-col items-center gap-1 rounded-sm border border-[var(--color-border)] px-2 py-3 text-center transition-colors duration-200 hover:border-[var(--color-accent)] active:border-[var(--color-accent)] sm:px-5 sm:py-4 md:max-w-[220px] md:flex-initial md:items-start md:px-7 md:py-5 md:text-left"
+            className="flex min-w-0 flex-1 flex-col items-center gap-1 rounded-sm border border-[var(--color-border)] px-2 py-3 text-center transition-colors duration-200 hover:border-[var(--color-ink)] active:border-[var(--color-ink)] sm:px-5 sm:py-4 md:max-w-[220px] md:flex-initial md:items-start md:px-7 md:py-5 md:text-left"
           >
             <p
               className={stat.highlight ? 'text-[var(--color-accent)]' : 'text-[var(--color-ink)]'}

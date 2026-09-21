@@ -13,44 +13,61 @@ type PlanSlide = {
   features: readonly string[]
 }
 
-const FAMILY_FEATURES = [
+const BIKE_CHECKINS = ['4 check-ins Bike Indoor', '12 check-ins Bike Indoor por + R$ 30']
+
+const FAMILIA_RECORRENTE_FEATURES = [
   'Adesão grátis, sem taxa de matrícula',
-  'Não precisa ser família — só entrar em conjunto',
-  'Plano recorrente: debita só a mensalidade, sem travar o limite do cartão',
-  'Cancelamento sem multa, com 30 dias de antecedência',
+  '12 meses',
+  '1ª parcela à vista + 11x no crédito recorrente',
+  'Cancelamento com 30 dias, sem multa',
+  ...BIKE_CHECKINS,
 ]
 
-const FAMILIA: PlanSlide[] = [
-  { title: '1 pessoa', price: '139,90', unit: 'por mês', features: FAMILY_FEATURES },
-  { title: '2 pessoas', price: '129,90', unit: 'por pessoa/mês', features: FAMILY_FEATURES },
-  { title: '3 pessoas', price: '124,90', unit: 'por pessoa/mês', features: FAMILY_FEATURES },
-  { title: '4 pessoas ou mais', price: '119,90', unit: 'por pessoa/mês', badge: 'Mais vantajoso', features: FAMILY_FEATURES },
+const FAMILIA_AVISTA_FEATURES = [
+  'Adesão grátis, sem taxa de matrícula',
+  '12 meses',
+  '1ª parcela à vista + 11x no crédito à vista parcelado',
+  'Cancelamento com 30 dias, sem multa',
+  ...BIKE_CHECKINS,
 ]
 
-const PESSOAL: PlanSlide[] = [
+const FAMILIA_RECORRENTE: PlanSlide[] = [
+  { title: '2 pessoas', price: '134,90', unit: 'por pessoa/mês', features: FAMILIA_RECORRENTE_FEATURES },
+  { title: '3 pessoas', price: '129,90', unit: 'por pessoa/mês', features: FAMILIA_RECORRENTE_FEATURES },
+  { title: '4 pessoas ou mais', price: '124,90', unit: 'por pessoa/mês', features: FAMILIA_RECORRENTE_FEATURES },
+]
+
+const FAMILIA_AVISTA: PlanSlide[] = [
+  { title: '2 pessoas', price: '119,90', unit: 'por pessoa/mês', badge: 'Economize R$ 360', features: FAMILIA_AVISTA_FEATURES },
+  { title: '3 pessoas', price: '114,90', unit: 'por pessoa/mês', badge: 'Economize R$ 540', features: FAMILIA_AVISTA_FEATURES },
+  { title: '4 pessoas ou mais', price: '109,90', unit: 'por pessoa/mês', badge: 'Economize R$ 720', features: FAMILIA_AVISTA_FEATURES },
+]
+
+const INDIVIDUAL: PlanSlide[] = [
   {
-    title: 'Active Quadrimestral',
+    title: 'Fit Anual — Recorrente',
+    price: '139,90',
+    unit: 'por mês',
+    badge: 'Recomendado',
+    features: FAMILIA_RECORRENTE_FEATURES,
+  },
+  {
+    title: 'Fit Anual — Crédito à vista',
+    price: '124,90',
+    unit: 'por mês',
+    badge: 'Economize R$ 180',
+    features: FAMILIA_AVISTA_FEATURES,
+  },
+  {
+    title: 'Quadrimestral',
     price: '139,90',
     unit: 'por mês',
     features: [
       'Adesão grátis, sem taxa de matrícula',
-      'Fidelidade de 4 meses',
-      '1ª parcela à vista + 3x no crédito',
+      '4 meses',
+      '1ª parcela à vista + 3x no crédito à vista',
       'Cancelamento com 30 dias, sem multa',
-      '4 check-ins de bike indoor inclusos',
-    ],
-  },
-  {
-    title: 'Fit Anual',
-    price: '139,90',
-    unit: 'por mês',
-    badge: 'Recomendado',
-    features: [
-      'Adesão grátis, sem anuidade nem taxa',
-      'Duração de 1 ano',
-      '1ª parcela à vista + 11x no crédito recorrente',
-      'Cancelamento com 30 dias de antecedência',
-      '4 check-ins de bike indoor inclusos',
+      ...BIKE_CHECKINS,
     ],
   },
   {
@@ -59,9 +76,9 @@ const PESSOAL: PlanSlide[] = [
     unit: 'por mês',
     features: [
       'Adesão grátis, sem taxa de matrícula',
-      'Sem fidelidade — pagamento mensal',
-      '4 check-ins de bike indoor inclusos',
-      '12 check-ins de bike indoor por +R$ 30,00',
+      'Sem fidelidade',
+      'Pagamento mensal',
+      ...BIKE_CHECKINS,
     ],
   },
 ]
@@ -109,12 +126,12 @@ function PlanColumn({
   return (
     <div
       className={`flex flex-col rounded-sm p-8 text-left ${
-        highlight ? 'bg-[var(--color-accent)] text-[var(--color-bg-main)]' : 'border border-[var(--color-border)] bg-[var(--color-bg-card)] text-[var(--color-ink)]'
+        highlight ? 'border-2 border-[var(--color-accent)] bg-[var(--color-bg-card)] text-[var(--color-ink)]' : 'border border-[var(--color-border)] bg-[var(--color-bg-card)] text-[var(--color-ink)]'
       }`}
     >
       <p
         className={`text-xs font-bold uppercase tracking-[0.25em] ${
-          highlight ? 'text-[var(--color-bg-main)]/70' : 'text-[var(--color-accent)]'
+          'text-[var(--color-text-muted)]'
         }`}
       >
         {category}
@@ -134,9 +151,7 @@ function PlanColumn({
             {current.badge && (
               <span
                 className={`mb-3 w-fit rounded-full px-3 py-1 text-[0.6rem] font-bold uppercase tracking-[0.15em] ${
-                  highlight
-                    ? 'bg-[var(--color-bg-main)] text-[var(--color-accent)]'
-                    : 'bg-[var(--color-accent)] text-[var(--color-bg-main)]'
+                  'bg-[var(--color-accent)] text-[var(--color-bg-main)]'
                 }`}
               >
                 {current.badge}
@@ -146,10 +161,10 @@ function PlanColumn({
             <h3 className="text-lg" style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>
               {current.title}
             </h3>
-            <p className="mt-2 text-3xl" style={{ fontFamily: 'var(--font-display)', fontWeight: 800 }}>
+            <p className="mt-2 whitespace-nowrap text-3xl text-[var(--color-accent)]" style={{ fontFamily: 'var(--font-display)', fontWeight: 800 }}>
               R$ {current.price}
             </p>
-            <p className={`mt-1 text-xs ${highlight ? 'text-[var(--color-bg-main)]/70' : 'text-[var(--color-text-muted)]'}`}>
+            <p className={`mt-1 text-xs text-[var(--color-text-muted)]`}>
               {current.unit}
             </p>
 
@@ -158,9 +173,9 @@ function PlanColumn({
                 <li key={feature} className="flex items-start gap-2 text-sm">
                   <Check
                     size={15}
-                    className={`mt-0.5 shrink-0 ${highlight ? 'text-[var(--color-bg-main)]' : 'text-[var(--color-accent)]'}`}
+                    className={`mt-0.5 shrink-0 text-[var(--color-ink)]`}
                   />
-                  <span className={highlight ? 'text-[var(--color-bg-main)]/90' : 'opacity-90'}>{feature}</span>
+                  <span className={'opacity-90'}>{feature}</span>
                 </li>
               ))}
             </ul>
@@ -171,7 +186,7 @@ function PlanColumn({
               rel="noreferrer"
               onClick={() => trackEvent('whatsapp_click', { category, plan: current.title })}
               className={`mt-6 w-full rounded-sm px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.15em] ${
-                highlight ? 'bg-[var(--color-bg-main)] text-[var(--color-accent)]' : 'btn-primary'
+                highlight ? 'bg-[var(--color-accent)] text-[var(--color-bg-main)]' : 'btn-primary'
               }`}
             >
               Escolher {current.title}
@@ -187,7 +202,7 @@ function PlanColumn({
             onClick={() => go(-1)}
             aria-label={`${category}: item anterior`}
             className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors ${
-              highlight ? 'text-[var(--color-bg-main)] hover:opacity-70' : 'text-[var(--color-ink)] hover:text-[var(--color-accent)]'
+              'text-[var(--color-ink)] hover:text-[var(--color-accent)]'
             }`}
           >
             <ChevronLeft size={16} />
@@ -205,8 +220,8 @@ function PlanColumn({
                 aria-label={`Ver ${slide.title}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
                   i === index
-                    ? `w-6 ${highlight ? 'bg-[var(--color-bg-main)]' : 'bg-[var(--color-accent)]'}`
-                    : `w-1.5 ${highlight ? 'bg-[var(--color-bg-main)]/30' : 'bg-[var(--color-ink)]/20'}`
+                    ? 'w-6 bg-[var(--color-ink)]'
+                    : 'w-1.5 bg-[var(--color-ink)]/20'
                 }`}
               />
             ))}
@@ -217,7 +232,7 @@ function PlanColumn({
             onClick={() => go(1)}
             aria-label={`${category}: próximo item`}
             className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors ${
-              highlight ? 'text-[var(--color-bg-main)] hover:opacity-70' : 'text-[var(--color-ink)] hover:text-[var(--color-accent)]'
+              'text-[var(--color-ink)] hover:text-[var(--color-accent)]'
             }`}
           >
             <ChevronRight size={16} />
@@ -240,9 +255,10 @@ export function Plans() {
         </h2>
         <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Por aqui, temos:</p>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          <PlanColumn category="Família" slides={FAMILIA} />
-          <PlanColumn category="Pessoal" slides={PESSOAL} startIndex={1} highlight />
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <PlanColumn category="Individual" slides={INDIVIDUAL} highlight />
+          <PlanColumn category="Família — Recorrente" slides={FAMILIA_RECORRENTE} />
+          <PlanColumn category="Família — À vista" slides={FAMILIA_AVISTA} />
           <PlanColumn category="Bike Indoor" slides={BIKE_INDOOR} />
         </div>
       </div>

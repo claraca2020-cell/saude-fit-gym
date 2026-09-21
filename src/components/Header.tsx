@@ -10,7 +10,7 @@ const NAV_LINKS = [
 ]
 
 const NAV_LINK_CLASS =
-  'text-[14px] uppercase tracking-[1px] text-white transition-colors duration-300 hover:text-[var(--color-accent)]'
+  'text-[14px] uppercase tracking-[1px] text-white transition-colors duration-300 hover:text-[var(--color-text-muted)]'
 
 function Logo({ className = '' }: { className?: string }) {
   return (
