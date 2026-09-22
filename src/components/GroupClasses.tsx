@@ -130,22 +130,14 @@ export function GroupClasses() {
                   }}
                 >
                   {/* Card Header */}
-                  <div className="flex items-center justify-between mb-8">
-                    <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-transparent border border-[var(--color-accent)] border-opacity-30 flex items-center justify-center">
-                        <Icon className="w-7 h-7 text-[var(--color-accent)]" strokeWidth={1.5} />
-                      </div>
-                      <div>
-                        <p className="text-sm font-bold uppercase tracking-[0.15em] text-white">
-                          Turno {turno}
-                        </p>
-                      </div>
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="w-14 h-14 rounded-xl bg-transparent border border-[var(--color-accent)] border-opacity-30 flex items-center justify-center">
+                      <Icon className="w-7 h-7 text-[var(--color-accent)]" strokeWidth={1.5} />
                     </div>
-                    <div className="text-right">
-                      <p className="text-xs leading-tight text-[var(--color-text-muted)] font-medium whitespace-pre-line">
-                        {tagline}
+                    <div>
+                      <p className="text-sm font-bold uppercase tracking-[0.15em] text-white">
+                        Turno {turno}
                       </p>
-                      <div className="w-12 h-0.5 bg-[var(--color-accent)] mt-3 ml-auto" />
                     </div>
                   </div>
 
