@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Bike, Dumbbell, Flame, PartyPopper, Zap } from 'lucide-react'
+import { Bike, Dumbbell, Flame, PartyPopper, Zap, Sun, Moon } from 'lucide-react'
 import { PilatesMatIcon } from './PilatesMatIcon'
 import { GROUP_CLASS_SLIDES, GroupClassesCarousel } from './GroupClassesCarousel'
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
@@ -103,50 +103,98 @@ export function GroupClasses() {
         <GroupClassesCarousel index={index} direction={direction} onGo={go} onSelect={select} />
 
         <div className="mt-8 md:mt-16">
-          <p className="text-base font-medium uppercase tracking-[0.35em] text-[var(--color-accent)] md:text-[0.7rem]">
-            Planeje seu treino
-          </p>
+          <div className="flex items-center gap-3">
+            <div className="w-1 h-6 bg-[var(--color-accent)]" />
+            <p className="text-base font-medium uppercase tracking-[0.35em] text-[var(--color-accent)] md:text-[0.7rem]">
+              Planeje seu treino
+            </p>
+          </div>
           <h3
-            className="mt-4 text-2xl text-white"
-            style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
+            className="mt-4 text-3xl md:text-4xl text-white font-bold"
+            style={{ fontFamily: 'var(--font-display)' }}
           >
-            Grade de horários
+            Grade de <span className="text-[var(--color-accent)]">horários</span>
           </h3>
 
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-6">
-            {Object.entries(SCHEDULE).map(([turno, days]) => (
-              <div
-                key={turno}
-                className="rounded-md border border-[var(--color-border)] bg-[var(--color-bg-card)] p-3 sm:p-6 md:p-7"
-              >
-                <p className="text-sm font-bold uppercase tracking-[0.25em] text-[var(--color-text-muted)] sm:text-xs">
-                  Turno {turno}
-                </p>
-                <ul className="mt-3 divide-y divide-[var(--color-border)] sm:mt-5">
-                  {days.map((day) => (
-                    <li
-                      key={day.day}
-                      className="-mx-1.5 flex flex-col gap-1 rounded-sm px-1.5 py-2 transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-ink)_8%,transparent)] sm:-mx-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4 sm:px-2 sm:py-3.5"
-                    >
-                      <span
-                        className="text-xs font-semibold text-[var(--color-ink)] sm:w-36 sm:shrink-0 sm:text-sm"
-                        style={{ fontFamily: 'var(--font-display)' }}
-                      >
-                        {day.day}
-                      </span>
-                      <span className="flex flex-wrap gap-x-1.5 gap-y-0.5 text-xs sm:justify-end sm:gap-x-3 sm:gap-y-1 sm:text-sm">
-                        {parseClasses(day.classes).map((c, i) => (
-                          <span key={i} className="whitespace-nowrap">
-                            <span className="font-bold text-[var(--color-ink)]">{c.time}</span>{' '}
-                            <span className="text-[var(--color-text-muted)]">{c.name}</span>
-                          </span>
-                        ))}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6">
+            {Object.entries(SCHEDULE).map(([turno, days]) => {
+              const Icon = turno === 'Matutino' ? Sun : Moon
+              const tagline = turno === 'Matutino' ? 'MAIS ENERGIA\nPARA O SEU DIA' : 'MOVIMENTO\nSEM LIMITES'
+
+              return (
+                <div
+                  key={turno}
+                  className="rounded-3xl border border-[var(--color-accent)] border-opacity-20 bg-black/5 p-8 backdrop-blur-sm transition-all duration-300 hover:border-opacity-30 hover:bg-black/10"
+                  style={{
+                    boxShadow: '0 4px 20px rgba(255, 187, 51, 0.05)',
+                  }}
+                >
+                  {/* Card Header */}
+                  <div className="flex items-start justify-between mb-8">
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)] bg-opacity-10 border border-[var(--color-accent)] border-opacity-20 flex items-center justify-center">
+                        <Icon className="w-7 h-7 text-[var(--color-accent)]" strokeWidth={1.5} />
+                      </div>
+                      <div>
+                        <p className="text-sm font-bold uppercase tracking-[0.15em] text-white">
+                          Turno {turno}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs leading-tight text-[var(--color-text-muted)] font-medium whitespace-pre-line">
+                        {tagline}
+                      </p>
+                      <div className="w-12 h-0.5 bg-[var(--color-accent)] mt-3 ml-auto" />
+                    </div>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="border-t border-white border-opacity-5 mb-6" />
+
+                  {/* Schedule Grid */}
+                  <div className="space-y-4">
+                    {days.map((day, dayIndex) => (
+                      <div key={day.day}>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 items-center">
+                          {/* Day Name */}
+                          <div className="col-span-1">
+                            <p className="text-sm sm:text-base font-semibold text-white tracking-wide">
+                              {day.day}
+                            </p>
+                          </div>
+
+                          {/* Classes */}
+                          <div className="col-span-1 sm:col-span-2">
+                            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4 items-start sm:items-center">
+                              {parseClasses(day.classes).map((c, classIndex) => (
+                                <div key={classIndex} className="flex items-center gap-3 w-full sm:w-auto">
+                                  {/* Time Badge */}
+                                  <div className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-[var(--color-accent)] bg-opacity-10 border border-[var(--color-accent)] border-opacity-20 min-w-[76px] h-10">
+                                    <span className="text-sm font-bold text-[var(--color-accent)]">
+                                      {c.time}
+                                    </span>
+                                  </div>
+                                  {/* Class Name */}
+                                  <span className="text-sm text-white font-medium flex-1">
+                                    {c.name}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Divider between days */}
+                        {dayIndex < days.length - 1 && (
+                          <div className="border-b border-white border-opacity-7 mt-4" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>
