@@ -1,4 +1,5 @@
-import { Star } from 'lucide-react'
+import { useState } from 'react'
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const REVIEWS = [
   {
@@ -54,6 +55,17 @@ const REVIEWS = [
 ]
 
 export function Testimonials() {
+  const [index, setIndex] = useState(0)
+  const cardsPerPage = 3
+  const totalPages = Math.ceil(REVIEWS.length / cardsPerPage)
+
+  const go = (dir: number) => {
+    setIndex((i) => (i + dir + totalPages) % totalPages)
+  }
+
+  const startIdx = index * cardsPerPage
+  const visibleReviews = REVIEWS.slice(startIdx, startIdx + cardsPerPage)
+
   return (
     <section className="border-t border-[var(--color-border)] py-6 md:pt-12 md:pb-20">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
@@ -85,26 +97,66 @@ export function Testimonials() {
           </div>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-14 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {REVIEWS.map((review) => (
-            <div
-              key={review.name}
-              className="flex flex-col rounded-sm border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5 sm:p-6"
-            >
-              <div className="flex gap-0.5 text-[var(--color-accent)]">
-                {Array.from({ length: 5 }).map((_, si) => (
-                  <Star key={si} size={16} fill="currentColor" strokeWidth={0} />
+        <div className="mt-8 sm:mt-14">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {visibleReviews.map((review) => (
+              <div
+                key={review.name}
+                className="flex flex-col rounded-sm border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5 sm:p-6"
+              >
+                <div className="flex gap-0.5 text-[var(--color-accent)]">
+                  {Array.from({ length: 5 }).map((_, si) => (
+                    <Star key={si} size={16} fill="currentColor" strokeWidth={0} />
+                  ))}
+                </div>
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-[var(--color-ink)] sm:text-base md:text-base">
+                  "{review.text}"
+                </p>
+                <div className="mt-5 border-t border-[var(--color-border)] pt-4">
+                  <p className="text-sm font-semibold text-[var(--color-ink)] sm:text-base md:text-base">{review.name}</p>
+                  <p className="mt-1 text-xs text-[var(--color-text-muted)] sm:text-sm">{review.time}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {totalPages > 1 && (
+            <div className="mt-8 flex items-center justify-center gap-4">
+              <button
+                type="button"
+                onClick={() => go(-1)}
+                aria-label="Avaliações anteriores"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+              >
+                <ChevronLeft size={20} />
+              </button>
+
+              <div className="flex gap-2">
+                {Array.from({ length: totalPages }).map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setIndex(i)}
+                    aria-label={`Ver grupo ${i + 1}`}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === index
+                        ? 'w-6 bg-[var(--color-accent)]'
+                        : 'w-2 bg-[var(--color-ink)]/20'
+                    }`}
+                  />
                 ))}
               </div>
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-[var(--color-ink)] sm:text-base md:text-base">
-                "{review.text}"
-              </p>
-              <div className="mt-5 border-t border-[var(--color-border)] pt-4">
-                <p className="text-sm font-semibold text-[var(--color-ink)] sm:text-base md:text-base">{review.name}</p>
-                <p className="mt-1 text-xs text-[var(--color-text-muted)] sm:text-sm">{review.time}</p>
-              </div>
+
+              <button
+                type="button"
+                onClick={() => go(1)}
+                aria-label="Próximas avaliações"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+              >
+                <ChevronRight size={20} />
+              </button>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </section>
