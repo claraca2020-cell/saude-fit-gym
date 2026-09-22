@@ -179,7 +179,7 @@ function PlanColumn({
             </ul>
 
             <a
-              href={`${WHATSAPP_URL}?text=Olá, gostaria de contratar o plano: ${current.title}`}
+              href={`${WHATSAPP_URL}?text=Olá! Gostaria de contratar o plano: ${current.title} - R$ ${current.price} ${current.unit}`}
               target="_blank"
               rel="noreferrer"
               onClick={() => trackEvent('whatsapp_click', { category, plan: current.title })}
