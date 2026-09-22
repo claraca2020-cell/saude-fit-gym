@@ -54,7 +54,7 @@ export function Benefits() {
                 {column.map((item) => (
                   <div
                     key={item}
-                    className="flex min-h-[76px] items-center justify-center border border-[var(--color-border)] border-l-2 border-l-[var(--color-ink)] bg-[var(--color-bg-card)] px-2.5 py-3 text-center sm:min-h-0 sm:justify-start sm:px-4 sm:py-3.5 sm:text-left"
+                    className="flex h-24 items-center justify-center border border-[var(--color-border)] border-l-2 border-l-[var(--color-ink)] bg-[var(--color-bg-card)] px-2.5 py-3 text-center sm:h-28 sm:justify-start sm:px-4 sm:py-3.5 sm:text-left"
                   >
                     <p className="text-xs leading-snug text-[var(--color-ink)]/85 sm:text-sm">{item}</p>
                   </div>
