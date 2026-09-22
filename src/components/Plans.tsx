@@ -125,7 +125,7 @@ function PlanColumn({
 
   return (
     <div
-      className={`flex flex-col rounded-sm p-8 text-left md:h-full ${
+      className={`flex flex-col rounded-sm p-8 text-left ${
         highlight ? 'border-2 border-[var(--color-accent)] bg-[var(--color-bg-card)] text-[var(--color-ink)]' : 'border border-[var(--color-border)] bg-[var(--color-bg-card)] text-[var(--color-ink)]'
       }`}
     >
@@ -146,7 +146,7 @@ function PlanColumn({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -30 * direction }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="flex flex-col text-left md:justify-between"
+            className="flex flex-col text-left xl:justify-between"
           >
             {current.badge && (
               <span
@@ -185,7 +185,7 @@ function PlanColumn({
               target="_blank"
               rel="noreferrer"
               onClick={() => trackEvent('whatsapp_click', { category, plan: current.title })}
-              className={`mt-6 md:mt-0 w-full rounded-sm px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.15em] ${
+              className={`mt-6 xl:mt-0 w-full rounded-sm px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.15em] ${
                 highlight ? 'bg-[var(--color-accent)] text-[var(--color-bg-main)]' : 'btn-primary'
               }`}
             >
@@ -255,7 +255,7 @@ export function Plans() {
         </h2>
         <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Por aqui, temos:</p>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:auto-rows-fr">
           <PlanColumn category="Individual" slides={INDIVIDUAL} highlight />
           <PlanColumn category="Família — Recorrente" slides={FAMILIA_RECORRENTE} />
           <PlanColumn category="Família — À vista" slides={FAMILIA_AVISTA} />
