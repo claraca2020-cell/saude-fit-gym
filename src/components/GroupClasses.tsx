@@ -130,9 +130,9 @@ export function GroupClasses() {
                   }}
                 >
                   {/* Card Header */}
-                  <div className="flex items-start justify-between mb-8">
+                  <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)] bg-opacity-10 border border-[var(--color-accent)] border-opacity-20 flex items-center justify-center">
+                      <div className="w-14 h-14 rounded-xl bg-transparent border border-[var(--color-accent)] border-opacity-30 flex items-center justify-center">
                         <Icon className="w-7 h-7 text-[var(--color-accent)]" strokeWidth={1.5} />
                       </div>
                       <div>
