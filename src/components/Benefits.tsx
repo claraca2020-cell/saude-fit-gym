@@ -48,9 +48,9 @@ export function Benefits() {
             O que você encontra aqui
           </p>
 
-          <div ref={ref} className="reveal-group mt-6 grid grid-cols-2 gap-2 sm:gap-3">
+          <div ref={ref} className="reveal-group mt-6 grid grid-cols-2 gap-2 sm:gap-4 md:gap-8">
             {columns.map((column, colIndex) => (
-              <div key={colIndex} className="flex flex-col gap-2 sm:gap-3">
+              <div key={colIndex} className="flex flex-col gap-2 sm:gap-4 md:gap-6">
                 {column.map((item) => (
                   <div
                     key={item}
