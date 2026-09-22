@@ -3,7 +3,7 @@ import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
 
 const BENEFITS = [
   '1º mês grátis com termo de cancelamento de outra academia',
-  '+100 aulas coletivas/mês',
+  '6 aulas coletivas/mês',
   'Treinos personalizados pelo app',
   'Horário livre',
   '30 dias de garantia*',
