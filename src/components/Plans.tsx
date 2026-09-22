@@ -255,7 +255,7 @@ export function Plans() {
         </h2>
         <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Por aqui, temos:</p>
 
-        <div className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           <PlanColumn category="Individual" slides={INDIVIDUAL} highlight />
           <PlanColumn category="Família — Recorrente" slides={FAMILIA_RECORRENTE} />
           <PlanColumn category="Família — À vista" slides={FAMILIA_AVISTA} />
