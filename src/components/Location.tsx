@@ -26,7 +26,7 @@ export function Location() {
           <div className="flex items-start gap-2 text-sm text-[var(--color-text-muted)] md:max-w-xs">
             <MapPin className="mt-0.5 shrink-0 text-[var(--color-ink)]" size={18} />
             <p>
-              Col. Agrícola Sucupira, Lote 01 — Riacho Fundo I, Brasília – DF, 71827-620
+              Col. Agrícola Sucupira, Lote 01, Riacho Fundo I, Brasília – DF, 71827-620
             </p>
           </div>
         </div>

@@ -45,14 +45,14 @@ const FAMILIA_AVISTA: PlanSlide[] = [
 
 const INDIVIDUAL: PlanSlide[] = [
   {
-    title: 'Fit Anual — Recorrente',
+    title: 'Fit Anual Recorrente',
     price: '139,90',
     unit: 'por mês',
     badge: 'Recomendado',
     features: FAMILIA_RECORRENTE_FEATURES,
   },
   {
-    title: 'Fit Anual — Crédito à vista',
+    title: 'Fit Anual Crédito à vista',
     price: '124,90',
     unit: 'por mês',
     badge: 'Economize R$ 180',
@@ -257,8 +257,8 @@ export function Plans() {
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:auto-rows-fr">
           <PlanColumn category="Individual" slides={INDIVIDUAL} highlight />
-          <PlanColumn category="Família — Recorrente" slides={FAMILIA_RECORRENTE} />
-          <PlanColumn category="Família — À vista" slides={FAMILIA_AVISTA} />
+          <PlanColumn category="Família Recorrente" slides={FAMILIA_RECORRENTE} />
+          <PlanColumn category="Família À vista" slides={FAMILIA_AVISTA} />
           <PlanColumn category="Bike Indoor" slides={BIKE_INDOOR} />
         </div>
       </div>

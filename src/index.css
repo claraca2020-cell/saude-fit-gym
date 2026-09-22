@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Identidade — Saúde Fit Gym: preto, cinza escuro, branco; amarelo claro só para destaque (ex.: preço) */
+  /* Identidade Saúde Fit Gym: preto, cinza escuro, branco; amarelo claro só para destaque (ex.: preço) */
   --color-ink: #ffffff;
   --color-bg-main: #000000;
   --color-bg-card: #1c1c1e;

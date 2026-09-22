@@ -43,7 +43,7 @@ export function Footer() {
           </a>
         </div>
 
-        <p className="md:justify-self-end">© {new Date().getFullYear()} Saúde Fit Gym — Riacho Fundo I, Brasília – DF</p>
+        <p className="md:justify-self-end">© {new Date().getFullYear()} Saúde Fit Gym, Riacho Fundo I, Brasília – DF</p>
       </div>
     </footer>
   )

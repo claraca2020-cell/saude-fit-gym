@@ -10,7 +10,7 @@ const FAQ_ITEMS = [
   {
     question: 'Posso experimentar antes de me matricular?',
     answer:
-      'Sim — oferecemos aula experimental gratuita na primeira vez, e nos finais de semana você pode trazer um colega para experimentar também.',
+      'Sim, oferecemos aula experimental gratuita na primeira vez, e nos finais de semana você pode trazer um colega para experimentar também.',
   },
   {
     question: 'A academia oferece treinos personalizados?',
@@ -20,7 +20,7 @@ const FAQ_ITEMS = [
   {
     question: 'Como funciona o plano recorrente no cartão de crédito?',
     answer:
-      'O plano recorrente debita apenas o valor da mensalidade a cada mês, igual a um serviço de streaming — não bloqueia nem compromete o limite total do seu cartão.',
+      'O plano recorrente debita apenas o valor da mensalidade a cada mês, igual a um serviço de streaming, não bloqueia nem compromete o limite total do seu cartão.',
   },
   {
     question: 'Posso congelar ou pausar minha assinatura?',
@@ -29,12 +29,12 @@ const FAQ_ITEMS = [
   },
   {
     question: 'Sou iniciante, terei professor para me auxiliar?',
-    answer: 'Sim — em todos os horários de funcionamento há professores formados para te auxiliar.',
+    answer: 'Sim, em todos os horários de funcionamento há professores formados para te auxiliar.',
   },
   {
     question: 'Há armários e qual a idade mínima para treinar?',
     answer:
-      'Sim, temos armários nos vestiários (é necessário levar seu próprio cadeado, pois o uso é rotativo). A idade mínima é 14 anos — não aceitamos menores de 14.',
+      'Sim, temos armários nos vestiários (é necessário levar seu próprio cadeado, pois o uso é rotativo). A idade mínima é 14 anos, não aceitamos menores de 14.',
   },
   {
     question: 'É permitido trazer acompanhantes ou visitantes?',
