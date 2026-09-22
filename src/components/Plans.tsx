@@ -125,9 +125,7 @@ function PlanColumn({
 
   return (
     <div
-      className={`flex flex-col rounded-sm p-8 text-left xl:h-full ${
-        highlight ? 'border-2 border-[var(--color-accent)] bg-[var(--color-bg-card)] text-[var(--color-ink)]' : 'border border-[var(--color-border)] bg-[var(--color-bg-card)] text-[var(--color-ink)]'
-      }`}
+      className="flex flex-col rounded-sm p-8 text-left border-2 border-[var(--color-accent)] bg-[var(--color-bg-card)] text-[var(--color-ink)] xl:h-full"
     >
       <p
         className={`text-xs font-bold uppercase tracking-[0.25em] ${
