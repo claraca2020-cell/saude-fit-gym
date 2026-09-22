@@ -146,15 +146,17 @@ function PlanColumn({
             transition={{ duration: 0.35, ease: 'easeOut' }}
             className="flex flex-col text-left xl:h-full xl:justify-between"
           >
-            {current.badge && (
-              <span
-                className={`mb-3 w-fit rounded-full px-3 py-1 text-[0.6rem] font-bold uppercase tracking-[0.15em] ${
-                  'bg-[var(--color-accent)] text-[var(--color-bg-main)]'
-                }`}
-              >
-                {current.badge}
-              </span>
-            )}
+            <div className="h-7 mb-3">
+              {current.badge && (
+                <span
+                  className={`w-fit rounded-full px-3 py-1 text-[0.6rem] font-bold uppercase tracking-[0.15em] ${
+                    'bg-[var(--color-accent)] text-[var(--color-bg-main)]'
+                  }`}
+                >
+                  {current.badge}
+                </span>
+              )}
+            </div>
 
             <h3 className="text-lg" style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>
               {current.title}
