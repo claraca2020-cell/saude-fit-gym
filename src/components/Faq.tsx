@@ -60,7 +60,7 @@ export function Faq() {
   return (
     <section id="faq" className="border-t border-[var(--color-border)] pt-10 pb-8 md:pt-12 md:pb-10">
       <div className="mx-auto max-w-6xl px-6 md:px-12">
-        <p className="text-xs font-medium uppercase tracking-[0.35em] text-[var(--color-text-muted)]">
+        <p className="text-sm font-bold uppercase tracking-[0.35em] text-[var(--color-accent)] sm:text-base">
           Perguntas frequentes
         </p>
         <h2

@@ -22,7 +22,7 @@ export function Benefits() {
     <section className="border-t border-[var(--color-border)] pt-10 pb-8 md:pt-12 md:pb-10">
       <div className="mx-auto grid max-w-[1400px] gap-16 px-6 md:grid-cols-[0.9fr_1.1fr] md:px-12">
         <div>
-          <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-text-muted)]">
+          <p className="text-sm font-bold uppercase tracking-[0.35em] text-[var(--color-accent)] sm:text-base">
             Treine com a gente
           </p>
           <h2
