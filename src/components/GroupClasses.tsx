@@ -125,9 +125,6 @@ export function GroupClasses() {
                 <div
                   key={turno}
                   className="rounded-3xl border border-[var(--color-accent)] border-opacity-20 bg-black/5 p-8 backdrop-blur-sm transition-all duration-300 hover:border-opacity-30 hover:bg-black/10 flex flex-col"
-                  style={{
-                    boxShadow: '0 4px 20px rgba(255, 187, 51, 0.05)',
-                  }}
                 >
                   {/* Card Header */}
                   <div className="flex items-center gap-4 mb-8">
