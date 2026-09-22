@@ -25,7 +25,7 @@ export function GroupClassesCarousel({ index, direction, onGo, onSelect }: Group
   const current = GROUP_CLASS_SLIDES[index]
 
   return (
-    <div id="aulas-coletivas-carousel" className="mt-12 scroll-mt-28">
+    <div id="aulas-coletivas-carousel" className="mt-6 md:mt-12 scroll-mt-28">
       <div className="relative overflow-hidden rounded-sm">
         <div className="relative aspect-[16/9] w-full md:aspect-[21/9]">
           <AnimatePresence initial={false} custom={direction} mode="popLayout">

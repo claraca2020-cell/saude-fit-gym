@@ -61,7 +61,7 @@ export function GroupClasses() {
   }
 
   return (
-    <section id="aulas-coletivas" className="border-t border-[var(--color-border)] bg-[var(--color-bg-card)] pt-10 pb-8 md:pt-12 md:pb-10">
+    <section id="aulas-coletivas" className="border-t border-[var(--color-border)] bg-[var(--color-bg-card)] py-6 md:pt-12 md:pb-10">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <div className="mb-8 max-w-xl">
           <p className="text-base font-medium uppercase tracking-[0.35em] text-[var(--color-text-muted)] md:text-[0.7rem]">
@@ -102,7 +102,7 @@ export function GroupClasses() {
 
         <GroupClassesCarousel index={index} direction={direction} onGo={go} onSelect={select} />
 
-        <div className="mt-16">
+        <div className="mt-8 md:mt-16">
           <h3
             className="text-2xl text-[var(--color-ink)]"
             style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
