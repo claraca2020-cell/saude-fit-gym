@@ -42,7 +42,7 @@ export function SiteGalleryCarousel() {
         </h2>
 
         <div className="relative mt-4 md:mt-8 overflow-hidden rounded-sm">
-          <div className="relative aspect-[16/9] w-full md:aspect-[21/9]">
+          <div className="relative aspect-[16/10] w-full md:aspect-[21/11]">
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
               <motion.img
                 key={current.image}
