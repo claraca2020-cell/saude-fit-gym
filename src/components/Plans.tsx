@@ -158,13 +158,13 @@ function PlanColumn({
               )}
             </div>
 
-            <h3 className="text-lg" style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>
+            <h3 className="text-lg text-center" style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>
               {current.title}
             </h3>
-            <p className="mt-2 whitespace-nowrap text-3xl text-[var(--color-accent)]" style={{ fontFamily: 'var(--font-display)', fontWeight: 800 }}>
+            <p className="mt-2 whitespace-nowrap text-center text-3xl text-[var(--color-accent)]" style={{ fontFamily: 'var(--font-display)', fontWeight: 800 }}>
               R$ {current.price}
             </p>
-            <p className={`mt-1 text-xs text-[var(--color-text-muted)]`}>
+            <p className={`mt-1 text-center text-xs text-[var(--color-text-muted)]`}>
               {current.unit}
             </p>
 
