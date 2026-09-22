@@ -185,9 +185,7 @@ function PlanColumn({
               target="_blank"
               rel="noreferrer"
               onClick={() => trackEvent('whatsapp_click', { category, plan: current.title })}
-              className={`mt-6 xl:mt-0 w-full rounded-sm px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.15em] ${
-                highlight ? 'bg-[var(--color-accent)] text-[var(--color-bg-main)]' : 'btn-primary'
-              }`}
+              className="mt-6 xl:mt-0 w-full rounded-sm px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.15em] btn-primary hover:bg-[var(--color-accent)] hover:text-[var(--color-bg-main)] transition-colors"
             >
               Escolher {current.title}
             </a>
