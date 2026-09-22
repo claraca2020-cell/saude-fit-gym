@@ -125,7 +125,7 @@ function PlanColumn({
 
   return (
     <div
-      className={`flex flex-col rounded-sm p-8 text-left ${
+      className={`flex flex-col rounded-sm p-8 text-left xl:h-full ${
         highlight ? 'border-2 border-[var(--color-accent)] bg-[var(--color-bg-card)] text-[var(--color-ink)]' : 'border border-[var(--color-border)] bg-[var(--color-bg-card)] text-[var(--color-ink)]'
       }`}
     >
@@ -137,7 +137,7 @@ function PlanColumn({
         {category}
       </p>
 
-      <div className="relative mt-4 overflow-hidden">
+      <div className="relative mt-4 overflow-hidden xl:flex-1 xl:flex xl:flex-col">
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.div
             key={current.title}
@@ -146,7 +146,7 @@ function PlanColumn({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -30 * direction }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="flex flex-col text-left xl:justify-between"
+            className="flex flex-col text-left xl:h-full xl:justify-between"
           >
             {current.badge && (
               <span
