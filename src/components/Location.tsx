@@ -13,7 +13,7 @@ export function Location() {
         <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.35em] text-[var(--color-accent)] sm:text-base">
-              Ambiente
+              Localização
             </p>
             <h2
               className="mt-4 max-w-lg text-4xl leading-tight text-[var(--color-ink)] md:text-5xl"
