@@ -64,16 +64,16 @@ export function GroupClasses() {
     <section id="aulas-coletivas" className="border-t border-[var(--color-border)] bg-[var(--color-bg-card)] pt-10 pb-8 md:pt-12 md:pb-10">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <div className="mb-8 max-w-xl">
-          <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-text-muted)]">
+          <p className="text-base font-medium uppercase tracking-[0.35em] text-[var(--color-text-muted)] md:text-[0.7rem]">
             Aulas coletivas
           </p>
           <h2
-            className="mt-4 text-4xl leading-tight text-[var(--color-ink)] md:text-5xl"
+            className="mt-4 text-5xl leading-tight text-[var(--color-ink)] md:text-5xl"
             style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
           >
             Todas as aulas em um só lugar.
           </h2>
-          <p className="mt-4 text-sm text-[var(--color-text-muted)]">
+          <p className="mt-4 text-base text-[var(--color-text-muted)] md:text-sm">
             Todas as aulas coletivas já estão inclusas no seu plano.
           </p>
         </div>
@@ -90,12 +90,12 @@ export function GroupClasses() {
             >
               <Icon className="h-6 w-6 text-[var(--color-ink)] sm:h-7 sm:w-7" strokeWidth={1.5} />
               <h3
-                className="mt-3 text-base text-[var(--color-ink)] sm:mt-6 sm:text-xl"
+                className="mt-3 text-lg text-[var(--color-ink)] sm:mt-6 sm:text-xl"
                 style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
               >
                 {name}
               </h3>
-              <p className="mt-1 text-xs text-[var(--color-text-muted)] sm:mt-2 sm:text-sm">{description}</p>
+              <p className="mt-1 text-sm text-[var(--color-text-muted)] sm:mt-2 sm:text-sm">{description}</p>
             </button>
           ))}
         </div>
@@ -116,7 +116,7 @@ export function GroupClasses() {
                 key={turno}
                 className="rounded-md border border-[var(--color-border)] bg-[var(--color-bg-card)] p-3 sm:p-6 md:p-7"
               >
-                <p className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-[var(--color-text-muted)] sm:text-xs">
+                <p className="text-sm font-bold uppercase tracking-[0.25em] text-[var(--color-text-muted)] sm:text-xs">
                   Turno {turno}
                 </p>
                 <ul className="mt-3 divide-y divide-[var(--color-border)] sm:mt-5">

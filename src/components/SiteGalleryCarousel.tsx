@@ -31,11 +31,11 @@ export function SiteGalleryCarousel() {
   return (
     <section id="conheca-o-espaco" className="border-t border-[var(--color-border)] pt-10 pb-8 md:pt-12 md:pb-10">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <p className="text-sm font-bold uppercase tracking-[0.35em] text-[var(--color-text-muted)]">
+        <p className="text-base font-bold uppercase tracking-[0.35em] text-[var(--color-text-muted)] md:text-sm">
           Conheça o espaço
         </p>
         <h2
-          className="mt-4 text-4xl leading-tight text-[var(--color-ink)] md:text-5xl"
+          className="mt-4 text-5xl leading-tight text-[var(--color-ink)] md:text-5xl"
           style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
         >
           Uma volta pela Saúde Fit Gym.
