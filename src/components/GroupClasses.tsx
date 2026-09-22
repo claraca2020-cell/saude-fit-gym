@@ -84,18 +84,18 @@ export function GroupClasses() {
               key={name}
               type="button"
               onClick={() => jumpToSlide(slideLabel)}
-              className={`group bg-[var(--color-bg-card)] p-4 text-left transition-colors duration-300 hover:bg-[var(--color-bg-main)] sm:p-8 ${
+              className={`group bg-[var(--color-accent)] p-4 text-left transition-colors duration-300 hover:bg-[var(--color-accent-soft)] sm:p-8 ${
                 slideLabel ? 'cursor-pointer' : 'cursor-default'
               }`}
             >
-              <Icon className="h-6 w-6 text-[var(--color-ink)] sm:h-7 sm:w-7" strokeWidth={1.5} />
+              <Icon className="h-6 w-6 text-[var(--color-bg-main)] sm:h-7 sm:w-7" strokeWidth={1.5} />
               <h3
-                className="mt-3 text-lg text-[var(--color-ink)] sm:mt-6 sm:text-xl"
+                className="mt-3 text-lg text-[var(--color-bg-main)] sm:mt-6 sm:text-xl"
                 style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
               >
                 {name}
               </h3>
-              <p className="mt-1 text-sm text-[var(--color-text-muted)] sm:mt-2 sm:text-sm">{description}</p>
+              <p className="mt-1 text-sm text-[var(--color-bg-main)] sm:mt-2 sm:text-sm">{description}</p>
             </button>
           ))}
         </div>
