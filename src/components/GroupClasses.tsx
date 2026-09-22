@@ -170,7 +170,7 @@ export function GroupClasses() {
                               {parseClasses(day.classes).map((c, classIndex) => (
                                 <div key={classIndex} className="flex items-center gap-3 w-full sm:w-auto">
                                   {/* Time Badge */}
-                                  <div className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-[var(--color-accent)] bg-opacity-10 border border-[var(--color-accent)] border-opacity-20 min-w-[76px] h-10">
+                                  <div className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-transparent border border-[var(--color-accent)] border-opacity-30 min-w-[76px] h-10">
                                     <span className="text-sm font-bold text-[var(--color-accent)]">
                                       {c.time}
                                     </span>
