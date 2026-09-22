@@ -47,7 +47,7 @@ export function Footer() {
                   aria-label="Falar no WhatsApp"
                   className="opacity-80 transition-opacity duration-300 hover:opacity-100"
                 >
-                  <img src={iconWhatsapp} alt="" className="h-[36px] w-[36px]" />
+                  <img src={iconWhatsapp} alt="" className="h-[36px] w-[36px] md:h-[40px] md:w-[40px]" />
                 </a>
               </div>
 
