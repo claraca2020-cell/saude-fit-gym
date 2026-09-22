@@ -78,13 +78,13 @@ export function GroupClasses() {
           </p>
         </div>
 
-        <div ref={ref} className="reveal-group grid grid-cols-2 gap-2 overflow-hidden rounded-sm sm:gap-3 lg:gap-4 lg:grid-cols-3">
+        <div ref={ref} className="reveal-group mx-auto max-w-4xl grid grid-cols-2 gap-2 overflow-hidden rounded-sm sm:gap-3 lg:gap-4 lg:grid-cols-3">
           {CLASSES.map(({ icon: Icon, name, description, slideLabel }) => (
             <button
               key={name}
               type="button"
               onClick={() => jumpToSlide(slideLabel)}
-              className={`group bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm p-4 text-left transition-colors duration-300 hover:bg-[var(--color-bg-main)] sm:p-6 ${
+              className={`group h-full flex flex-col bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm p-4 text-left transition-colors duration-300 hover:bg-[var(--color-bg-main)] sm:p-6 ${
                 slideLabel ? 'cursor-pointer' : 'cursor-default'
               }`}
             >
@@ -95,7 +95,7 @@ export function GroupClasses() {
               >
                 {name}
               </h3>
-              <p className="mt-1 text-sm text-[var(--color-text-muted)] sm:mt-2 sm:text-sm">{description}</p>
+              <p className="mt-1 flex-1 text-sm text-[var(--color-text-muted)] sm:mt-2 sm:text-sm">{description}</p>
             </button>
           ))}
         </div>
