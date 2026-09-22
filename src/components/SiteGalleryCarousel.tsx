@@ -31,7 +31,7 @@ export function SiteGalleryCarousel() {
   return (
     <section id="conheca-o-espaco" className="border-t border-[var(--color-border)] py-6 md:pt-12 md:pb-10">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <p className="text-base font-bold uppercase tracking-[0.35em] text-[var(--color-text-muted)] md:text-sm">
+        <p className="text-base font-bold uppercase tracking-[0.35em] text-[var(--color-accent)] md:text-sm">
           Conheça o espaço
         </p>
         <h2
