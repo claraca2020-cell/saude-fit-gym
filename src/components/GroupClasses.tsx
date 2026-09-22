@@ -103,8 +103,11 @@ export function GroupClasses() {
         <GroupClassesCarousel index={index} direction={direction} onGo={go} onSelect={select} />
 
         <div className="mt-8 md:mt-16">
+          <p className="text-base font-medium uppercase tracking-[0.35em] text-[var(--color-accent)] md:text-[0.7rem]">
+            Planeje seu treino
+          </p>
           <h3
-            className="text-2xl text-white"
+            className="mt-4 text-2xl text-white"
             style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
           >
             Grade de horários
