@@ -64,7 +64,7 @@ export function GroupClasses() {
     <section id="aulas-coletivas" className="border-t border-[var(--color-border)] bg-[var(--color-bg-card)] py-6 md:pt-12 md:pb-10">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <div className="mb-8 max-w-xl">
-          <p className="text-base font-medium uppercase tracking-[0.35em] text-[var(--color-text-muted)] md:text-[0.7rem]">
+          <p className="text-base font-medium uppercase tracking-[0.35em] text-[var(--color-accent)] md:text-[0.7rem]">
             Aulas coletivas
           </p>
           <h2

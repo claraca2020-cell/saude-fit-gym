@@ -251,7 +251,7 @@ export function Plans() {
         >
           Conheça nossos planos e comece hoje!
         </h2>
-        <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Por aqui, temos:</p>
+        <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--color-accent)]">Por aqui, temos:</p>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:auto-rows-fr">
           <PlanColumn category="Individual" slides={INDIVIDUAL} highlight />
