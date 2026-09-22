@@ -4,8 +4,8 @@ import heroImage from '../assets/photos/capa-titulo.jpg'
 
 const STATS = [
   { value: 'Aberta', label: 'Nos feriados', highlight: true },
-  { value: '+100', label: 'Aulas coletivas/mês', highlight: false },
-  { value: '7 dias', label: 'Aberto sáb. e dom.', highlight: false },
+  { value: '+100', label: 'Aulas coletivas/mês', highlight: true },
+  { value: '7 dias', label: 'Aberto sáb. e dom.', highlight: true },
 ]
 
 export function Hero() {
