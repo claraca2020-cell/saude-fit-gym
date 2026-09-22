@@ -12,8 +12,8 @@ export function Footer() {
   return (
     <footer className="border-t border-[var(--color-border)] py-10">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <div className="grid grid-cols-1 items-center justify-items-center gap-4 md:grid-cols-3">
-          <img src={logoSaudeFit} alt="Saúde Fit Gym" className="h-16 w-auto md:h-20 md:justify-self-start" />
+        <div className="flex flex-col items-center justify-center gap-4">
+          <img src={logoSaudeFit} alt="Saúde Fit Gym" className="h-16 w-auto md:h-20" />
 
           <div className="flex items-center justify-center gap-6">
             <a
@@ -45,11 +45,9 @@ export function Footer() {
             </a>
           </div>
 
-          <img src={assinaturaBranca} alt="Assinatura" className="h-20 w-auto md:h-28 md:justify-self-end" />
-        </div>
+          <img src={assinaturaBranca} alt="Assinatura" className="h-20 w-auto md:h-28" />
 
-        <div className="mt-6 text-center">
-          <p className="text-[0.7rem] text-[var(--color-text-muted)]">© {new Date().getFullYear()} Saúde Fit Gym, Riacho Fundo I, Brasília – DF</p>
+          <p className="mt-4 text-center text-[0.7rem] text-[var(--color-text-muted)]">© {new Date().getFullYear()} Saúde Fit Gym, Riacho Fundo I, Brasília – DF</p>
         </div>
       </div>
     </footer>
