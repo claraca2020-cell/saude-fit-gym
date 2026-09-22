@@ -94,3 +94,40 @@ body {
   border-color: var(--color-ink);
   background-color: color-mix(in srgb, var(--color-ink) 5%, transparent);
 }
+
+.plan-btn {
+  background-color: var(--color-ink);
+  color: var(--color-bg-main);
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+.plan-btn:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-1px);
+}
+.plan-btn:active {
+  background-color: var(--color-accent);
+  transform: translateY(0);
+}
+.plan-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  opacity: 0.8;
+  transition: opacity 300ms ease;
+}
+.social-icon-link:hover {
+  opacity: 1;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}

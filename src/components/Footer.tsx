@@ -27,27 +27,27 @@ export function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram da Saúde Fit Gym"
-                  className="opacity-80 transition-opacity duration-300 hover:opacity-100"
+                  className="social-icon-link"
                 >
-                  <img src={iconInstagram} alt="" className="h-[36px] w-[36px]" />
+                  <img src={iconInstagram} alt="" className="social-icon" />
                 </a>
                 <a
                   href={FACEBOOK_URL}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Facebook da Saúde Fit Gym"
-                  className="opacity-80 transition-opacity duration-300 hover:opacity-100"
+                  className="social-icon-link"
                 >
-                  <img src={iconFacebook} alt="" className="h-[36px] w-[36px]" />
+                  <img src={iconFacebook} alt="" className="social-icon" />
                 </a>
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Falar no WhatsApp"
-                  className="opacity-80 transition-opacity duration-300 hover:opacity-100"
+                  className="social-icon-link"
                 >
-                  <img src={iconWhatsapp} alt="" className="h-[36px] w-[36px] md:h-[40px] md:w-[40px]" />
+                  <img src={iconWhatsapp} alt="" className="social-icon" />
                 </a>
               </div>
 
