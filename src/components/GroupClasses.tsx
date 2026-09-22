@@ -104,7 +104,7 @@ export function GroupClasses() {
 
         <div className="mt-8 md:mt-16">
           <h3
-            className="text-2xl text-[var(--color-ink)]"
+            className="text-2xl text-white"
             style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
           >
             Grade de horários
