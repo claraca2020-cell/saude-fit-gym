@@ -14,7 +14,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <div className="flex flex-col items-center justify-center gap-8">
           {/* Main Footer Content */}
-          <div className="flex items-center justify-center gap-12 md:gap-24 w-full">
+          <div className="flex items-center justify-center gap-16 md:gap-32 w-full">
             {/* Logo Left */}
             <img src={logoSaudeFit} alt="Saúde Fit Gym" className="h-16 w-auto md:h-20 shrink-0" />
 
