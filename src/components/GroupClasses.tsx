@@ -116,7 +116,7 @@ export function GroupClasses() {
             Grade de <span className="text-[var(--color-accent)]">horários</span>
           </h3>
 
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6 auto-rows-fr">
             {Object.entries(SCHEDULE).map(([turno, days]) => {
               const Icon = turno === 'Matutino' ? Sun : Moon
               const tagline = turno === 'Matutino' ? 'MAIS ENERGIA\nPARA O SEU DIA' : 'MOVIMENTO\nSEM LIMITES'
@@ -124,7 +124,7 @@ export function GroupClasses() {
               return (
                 <div
                   key={turno}
-                  className="rounded-3xl border border-[var(--color-accent)] border-opacity-20 bg-black/5 p-8 backdrop-blur-sm transition-all duration-300 hover:border-opacity-30 hover:bg-black/10"
+                  className="rounded-3xl border border-[var(--color-accent)] border-opacity-20 bg-black/5 p-8 backdrop-blur-sm transition-all duration-300 hover:border-opacity-30 hover:bg-black/10 flex flex-col"
                   style={{
                     boxShadow: '0 4px 20px rgba(255, 187, 51, 0.05)',
                   }}
