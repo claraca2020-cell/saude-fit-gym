@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { Star } from 'lucide-react'
 
 const REVIEWS = [
   {
@@ -56,16 +54,6 @@ const REVIEWS = [
 ]
 
 export function Testimonials() {
-  const [index, setIndex] = useState(0)
-  const [direction, setDirection] = useState(1)
-
-  const go = (dir: number) => {
-    setDirection(dir)
-    setIndex((i) => (i + dir + REVIEWS.length) % REVIEWS.length)
-  }
-
-  const current = REVIEWS[index]
-
   return (
     <section className="border-t border-[var(--color-border)] py-6 md:pt-12 md:pb-20">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
@@ -97,79 +85,26 @@ export function Testimonials() {
           </div>
         </div>
 
-        <div className="mt-8 md:mt-12">
-          <div className="flex flex-col rounded-sm border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6 sm:p-8">
-            <div className="flex gap-0.5 text-[var(--color-accent)]">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={16} fill="currentColor" strokeWidth={0} />
-              ))}
-            </div>
-
-            <div className="relative mt-6 overflow-hidden">
-              <AnimatePresence initial={false} custom={direction} mode="popLayout">
-                <motion.div
-                  key={current.name}
-                  custom={direction}
-                  initial={{ opacity: 0, x: 30 * direction }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 * direction }}
-                  transition={{ duration: 0.35, ease: 'easeOut' }}
-                  className="flex flex-col"
-                >
-                  <p className="flex-1 text-sm leading-relaxed text-[var(--color-ink)]/85 sm:text-base">
-                    "{current.text}"
-                  </p>
-                  <div className="mt-6 border-t border-[var(--color-border)] pt-4">
-                    <p className="text-sm font-semibold text-[var(--color-ink)] sm:text-base">{current.name}</p>
-                    <p className="text-xs text-[var(--color-text-muted)] sm:text-sm">{current.time}</p>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            <div className="mt-8 flex items-center justify-between border-t border-[var(--color-border)] pt-4">
-              <button
-                type="button"
-                onClick={() => go(-1)}
-                aria-label="Avaliação anterior"
-                className="flex h-8 w-8 items-center justify-center rounded-full transition-colors hover:text-[var(--color-accent)] active:text-[var(--color-accent)]"
-              >
-                <ChevronLeft size={16} />
-              </button>
-
-              <div className="flex gap-1.5">
-                {REVIEWS.map((_, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    onClick={() => {
-                      setDirection(i > index ? 1 : -1)
-                      setIndex(i)
-                    }}
-                    aria-label={`Ver avaliação ${i + 1}`}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      i === index
-                        ? 'w-6 bg-[var(--color-ink)]'
-                        : 'w-1.5 bg-[var(--color-ink)]/20'
-                    }`}
-                  />
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-14 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {REVIEWS.map((review) => (
+            <div
+              key={review.name}
+              className="flex flex-col rounded-sm border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5 sm:p-6"
+            >
+              <div className="flex gap-0.5 text-[var(--color-accent)]">
+                {Array.from({ length: 5 }).map((_, si) => (
+                  <Star key={si} size={16} fill="currentColor" strokeWidth={0} />
                 ))}
               </div>
-
-              <button
-                type="button"
-                onClick={() => go(1)}
-                aria-label="Próxima avaliação"
-                className="flex h-8 w-8 items-center justify-center rounded-full transition-colors hover:text-[var(--color-accent)] active:text-[var(--color-accent)]"
-              >
-                <ChevronRight size={16} />
-              </button>
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-[var(--color-ink)] sm:text-base md:text-base">
+                "{review.text}"
+              </p>
+              <div className="mt-5 border-t border-[var(--color-border)] pt-4">
+                <p className="text-sm font-semibold text-[var(--color-ink)] sm:text-base md:text-base">{review.name}</p>
+                <p className="mt-1 text-xs text-[var(--color-text-muted)] sm:text-sm">{review.time}</p>
+              </div>
             </div>
-
-            <div className="mt-4 text-center text-xs text-[var(--color-text-muted)]">
-              {String(index + 1).padStart(2, '0')} / {String(REVIEWS.length).padStart(2, '0')}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
