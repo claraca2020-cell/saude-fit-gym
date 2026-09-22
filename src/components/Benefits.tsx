@@ -48,13 +48,13 @@ export function Benefits() {
             O que você encontra aqui
           </p>
 
-          <div ref={ref} className="reveal-group mt-6 mx-auto max-w-xl grid grid-cols-2 gap-2 sm:gap-4 md:gap-8 place-items-center">
+          <div ref={ref} className="reveal-group mt-6 mx-auto max-w-2xl grid grid-cols-2 gap-3 sm:gap-6 md:gap-10 place-items-center">
             {columns.map((column, colIndex) => (
-              <div key={colIndex} className="flex w-full flex-col gap-2 sm:gap-4 md:gap-6">
+              <div key={colIndex} className="flex w-full flex-col gap-3 sm:gap-6 md:gap-8">
                 {column.map((item) => (
                   <div
                     key={item}
-                    className="flex h-28 items-center justify-center border border-[var(--color-border)] border-l-2 border-l-[var(--color-ink)] bg-[var(--color-bg-card)] px-3 py-4 text-center sm:h-32 sm:justify-start sm:px-5 sm:py-5 sm:text-left"
+                    className="flex h-20 items-center justify-center border border-[var(--color-border)] border-l-2 border-l-[var(--color-ink)] bg-[var(--color-bg-card)] px-3 py-3 text-center sm:h-24 sm:justify-start sm:px-4 sm:py-4 sm:text-left"
                   >
                     <p className="text-xs leading-snug text-[var(--color-ink)]/85 sm:text-sm">{item}</p>
                   </div>
