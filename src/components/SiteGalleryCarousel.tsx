@@ -35,7 +35,7 @@ export function SiteGalleryCarousel() {
           Conheça o espaço
         </p>
         <h2
-          className="mt-4 max-w-lg text-4xl leading-tight text-[var(--color-ink)] md:text-5xl"
+          className="mt-4 text-4xl leading-tight text-[var(--color-ink)] md:text-5xl"
           style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
         >
           Uma volta pela Saúde Fit Gym.
