@@ -56,7 +56,7 @@ export function Benefits() {
                     key={item}
                     className="flex h-20 items-center justify-center border border-[var(--color-border)] border-l-2 border-l-[var(--color-ink)] bg-[var(--color-bg-card)] px-3 py-3 text-center sm:h-24 sm:justify-start sm:px-4 sm:py-4 sm:text-left"
                   >
-                    <p className="text-xs leading-snug text-[var(--color-ink)]/85 sm:text-sm">{item}</p>
+                    <p className="text-xs leading-snug text-[var(--color-accent)] sm:text-sm">{item}</p>
                   </div>
                 ))}
               </div>
