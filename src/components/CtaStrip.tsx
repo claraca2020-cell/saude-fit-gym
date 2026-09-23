@@ -1,6 +1,10 @@
 import { ArrowRight } from 'lucide-react'
+import { trackEvent } from '../lib/analytics'
 
 const WHATSAPP_URL = 'https://wa.me/5561984010700'
+const WHATSAPP_MESSAGE = encodeURIComponent(
+  'Olá! Quero me matricular na Saúde Fit Gym e gostaria de saber mais sobre a avaliação física gratuita.',
+)
 
 export function CtaStrip() {
   return (
@@ -14,9 +18,10 @@ export function CtaStrip() {
         </h2>
 
         <a
-          href={WHATSAPP_URL}
+          href={`${WHATSAPP_URL}?text=${WHATSAPP_MESSAGE}`}
           target="_blank"
           rel="noreferrer"
+          onClick={() => trackEvent('whatsapp_click', { source: 'cta_strip' })}
           className="group flex items-center gap-2 rounded-sm bg-[var(--color-ink)] px-8 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-bg-main)] transition-colors duration-200 hover:bg-[var(--color-accent)]"
         >
           Quero me matricular

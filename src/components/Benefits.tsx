@@ -20,7 +20,7 @@ export function Benefits() {
 
   return (
     <section className="border-t border-[var(--color-border)] pt-10 pb-8 md:pt-12 md:pb-10">
-      <div className="mx-auto grid max-w-[1400px] gap-16 px-6 md:grid-cols-[0.9fr_1.1fr] md:px-12">
+      <div className="mx-auto grid max-w-[1400px] gap-8 px-6 md:gap-16 md:grid-cols-[0.9fr_1.1fr] md:px-12">
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.35em] text-[var(--color-accent)] sm:text-base">
             Treine com a gente
@@ -31,10 +31,6 @@ export function Benefits() {
           >
             Estrutura completa para te atender.
           </h2>
-          <p className="mt-4 max-w-md text-sm text-[var(--color-text-muted)]">
-            Tudo pensado para deixar seu treino mais confortável, completo e consistente.
-          </p>
-
           <div className="mt-8 flex items-start gap-3 rounded-sm bg-[var(--color-bg-card)] p-5 shadow-[0_1px_0_var(--color-border)]">
             <ShieldCheck className="mt-0.5 shrink-0 text-[var(--color-ink)]" size={22} />
             <p className="text-sm text-[var(--color-text-muted)]">
@@ -44,8 +40,8 @@ export function Benefits() {
         </div>
 
         <div>
-          <p className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[var(--color-text-muted)]">
-            O que você encontra aqui
+          <p className="max-w-md text-sm leading-relaxed text-[var(--color-text-muted)]">
+            Tudo pensado para deixar seu treino mais confortável, completo e consistente.
           </p>
 
           <div ref={ref} className="reveal-group mt-6 mx-auto max-w-2xl grid grid-cols-2 gap-3 sm:gap-6 md:gap-10 place-items-center">

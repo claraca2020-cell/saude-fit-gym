@@ -107,12 +107,10 @@ function PlanColumn({
   category,
   slides,
   startIndex = 0,
-  highlight = false,
 }: {
   category: string
   slides: PlanSlide[]
   startIndex?: number
-  highlight?: boolean
 }) {
   const [index, setIndex] = useState(startIndex)
   const [direction, setDirection] = useState(1)
@@ -125,17 +123,17 @@ function PlanColumn({
 
   return (
     <div
-      className="flex flex-col rounded-sm p-8 text-left border-2 border-[var(--color-accent)] bg-[var(--color-bg-card)] text-[var(--color-ink)] xl:h-full"
+      className="plans-card flex flex-col rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5 text-left text-[var(--color-ink)] shadow-[0_18px_50px_rgba(0,0,0,.22)] md:rounded-sm md:border-2 md:border-[var(--color-accent)] md:p-8 md:shadow-none xl:h-full"
     >
       <p
-        className={`text-xs font-bold uppercase tracking-[0.25em] ${
+        className={`text-[0.65rem] font-bold uppercase tracking-[0.2em] md:text-xs md:tracking-[0.25em] ${
           'text-[var(--color-text-muted)]'
         }`}
       >
         {category}
       </p>
 
-      <div className="relative mt-4 overflow-hidden xl:flex-1 xl:flex xl:flex-col">
+      <div className="relative mt-3 overflow-hidden md:mt-4 xl:flex-1 xl:flex xl:flex-col">
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.div
             key={current.title}
@@ -158,17 +156,17 @@ function PlanColumn({
               )}
             </div>
 
-            <h3 className="text-lg text-center" style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>
+            <h3 className="text-center text-xl md:text-lg" style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>
               {current.title}
             </h3>
-            <p className="mt-2 whitespace-nowrap text-center text-3xl text-[var(--color-accent)]" style={{ fontFamily: 'var(--font-display)', fontWeight: 800 }}>
+            <p className="mt-1 whitespace-nowrap text-center text-4xl text-[var(--color-accent)] md:mt-2 md:text-3xl" style={{ fontFamily: 'var(--font-display)', fontWeight: 800 }}>
               R$ {current.price}
             </p>
             <p className={`mt-1 text-center text-xs text-[var(--color-text-muted)]`}>
               {current.unit}
             </p>
 
-            <ul className="mt-5 min-h-[120px] space-y-2.5 text-left">
+            <ul className="mt-5 min-h-[120px] space-y-3 border-t border-[var(--color-border)] pt-4 text-left md:space-y-2.5 md:border-0 md:pt-0">
               {current.features.map((feature) => (
                 <li key={feature} className="flex items-start gap-2 text-sm">
                   <Check
@@ -181,11 +179,11 @@ function PlanColumn({
             </ul>
 
             <a
-              href={`${WHATSAPP_URL}?text=Olá! Gostaria de contratar o plano: ${current.title} - R$ ${current.price} ${current.unit}`}
+              href={`${WHATSAPP_URL}?text=${encodeURIComponent(`Olá! Gostaria de contratar o plano ${current.title} — R$ ${current.price} ${current.unit}.`)}`}
               target="_blank"
               rel="noreferrer"
               onClick={() => trackEvent('whatsapp_click', { category, plan: current.title })}
-              className="mt-6 xl:mt-0 w-full rounded-sm px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.15em] plan-btn cursor-pointer"
+              className="mt-6 w-full cursor-pointer rounded-full px-6 py-3.5 text-center text-[0.68rem] font-bold uppercase tracking-[0.14em] plan-btn md:rounded-sm md:py-3 md:text-xs md:tracking-[0.15em] xl:mt-0"
             >
               Escolher {current.title}
             </a>
@@ -199,14 +197,14 @@ function PlanColumn({
             type="button"
             onClick={() => go(-1)}
             aria-label={`${category}: item anterior`}
-            className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors ${
+            className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors ${
               'text-[var(--color-ink)] hover:text-[var(--color-accent)]'
             }`}
           >
             <ChevronLeft size={16} />
           </button>
 
-          <div className="flex gap-1.5">
+          <div className="plan-slide-indicators flex gap-0">
             {slides.map((slide, i) => (
               <button
                 key={slide.title}
@@ -216,11 +214,8 @@ function PlanColumn({
                   setIndex(i)
                 }}
                 aria-label={`Ver ${slide.title}`}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === index
-                    ? 'w-6 bg-[var(--color-ink)]'
-                    : 'w-1.5 bg-[var(--color-ink)]/20'
-                }`}
+                aria-pressed={i === index}
+                className="carousel-indicator"
               />
             ))}
           </div>
@@ -229,7 +224,7 @@ function PlanColumn({
             type="button"
             onClick={() => go(1)}
             aria-label={`${category}: próximo item`}
-            className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors ${
+            className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors ${
               'text-[var(--color-ink)] hover:text-[var(--color-accent)]'
             }`}
           >
@@ -242,6 +237,18 @@ function PlanColumn({
 }
 
 export function Plans() {
+  const [categoryIndex, setCategoryIndex] = useState(0)
+  const planCategories = [
+    { category: 'Individual', slides: INDIVIDUAL },
+    { category: 'Família Recorrente', slides: FAMILIA_RECORRENTE },
+    { category: 'Família À vista', slides: FAMILIA_AVISTA },
+    { category: 'Bike Indoor', slides: BIKE_INDOOR },
+  ]
+  const changeCategory = (direction: number) => {
+    setCategoryIndex((current) => (current + direction + planCategories.length) % planCategories.length)
+  }
+  const currentCategory = planCategories[categoryIndex]
+
   return (
     <section id="planos" className="border-t border-[var(--color-border)] py-6 md:pt-12 md:pb-20">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
@@ -253,11 +260,26 @@ export function Plans() {
         </h2>
         <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--color-accent)]">Por aqui, temos:</p>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:auto-rows-fr">
-          <PlanColumn category="Individual" slides={INDIVIDUAL} highlight />
-          <PlanColumn category="Família Recorrente" slides={FAMILIA_RECORRENTE} />
-          <PlanColumn category="Família À vista" slides={FAMILIA_AVISTA} />
-          <PlanColumn category="Bike Indoor" slides={BIKE_INDOOR} />
+        <div className="relative mt-8 px-7 md:hidden">
+          <AnimatePresence initial={false} mode="wait">
+            <motion.div key={currentCategory.category} initial={{ opacity: 0, x: 18 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -18 }} transition={{ duration: 0.25, ease: 'easeOut' }}>
+              <PlanColumn category={currentCategory.category} slides={currentCategory.slides} />
+            </motion.div>
+          </AnimatePresence>
+          <button type="button" onClick={() => changeCategory(-1)} aria-label="Plano anterior" className="absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg-card)] text-[var(--color-ink)] shadow-lg transition-transform hover:scale-105"><ChevronLeft size={17} /></button>
+          <button type="button" onClick={() => changeCategory(1)} aria-label="Próximo plano" className="absolute right-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg-card)] text-[var(--color-ink)] shadow-lg transition-transform hover:scale-105"><ChevronRight size={17} /></button>
+          <div className="mt-4 flex items-center justify-center gap-2">
+            <div className="plan-category-indicators flex gap-0">
+              {planCategories.map((plan, index) => (
+                <button key={plan.category} type="button" onClick={() => setCategoryIndex(index)} aria-label={`Ver ${plan.category}`} aria-pressed={index === categoryIndex} data-tone="accent" className="carousel-indicator" />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="mt-10 hidden gap-6 md:grid md:grid-cols-2 xl:grid-cols-4 xl:auto-rows-fr">
+          {planCategories.map((plan) => (
+            <PlanColumn key={plan.category} category={plan.category} slides={plan.slides} />
+          ))}
         </div>
       </div>
     </section>

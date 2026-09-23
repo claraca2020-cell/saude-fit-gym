@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import logoSaudeFit from '../assets/brand/logo-saudefit.png'
 
@@ -15,17 +15,29 @@ const NAV_LINK_CLASS =
 function Logo({ className = '' }: { className?: string }) {
   return (
     <a href="#top" className={`flex items-center ${className}`}>
-      <img src={logoSaudeFit} alt="Saúde Fit Gym" className="h-12 w-auto md:h-16" />
+      <img src={logoSaudeFit} alt="Saúde Fit Gym" width={700} height={233} className="h-12 w-auto md:h-16" />
     </a>
   )
 }
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : ''
+    if (!isMenuOpen) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false)
+        menuButtonRef.current?.focus()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
     return () => {
+      window.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = ''
     }
   }, [isMenuOpen])
@@ -49,26 +61,28 @@ export function Header() {
           <Logo />
 
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={() => setIsMenuOpen((v) => !v)}
             aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
             aria-expanded={isMenuOpen}
-            className="relative z-[1001] flex h-6 w-8 flex-col justify-between"
+            aria-controls="mobile-menu"
+            className="relative z-[1001] flex h-11 w-11 flex-col items-center justify-center gap-[5px]"
           >
             <motion.span
               animate={isMenuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="block h-px w-full bg-[var(--color-ink)]"
+              className="block h-px w-6 bg-[var(--color-ink)]"
             />
             <motion.span
               animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
               transition={{ duration: 0.2 }}
-              className="block h-px w-full bg-[var(--color-ink)]"
+              className="block h-px w-6 bg-[var(--color-ink)]"
             />
             <motion.span
               animate={isMenuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="block h-px w-full bg-[var(--color-ink)]"
+              className="block h-px w-6 bg-[var(--color-ink)]"
             />
           </button>
         </div>
@@ -83,7 +97,7 @@ export function Header() {
             transition={{ duration: 0.4, ease: 'easeOut' }}
             className="fixed inset-0 z-40 flex flex-col justify-center bg-[var(--color-bg-main)] px-8 md:hidden"
           >
-            <nav className="flex flex-col gap-1">
+            <nav id="mobile-menu" aria-label="Navegação principal" className="flex flex-col gap-1">
               {NAV_LINKS.map((link, i) => (
                 <motion.a
                   key={link.href}

@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion'
 import { Benefits } from './components/Benefits'
 import { CtaStrip } from './components/CtaStrip'
 import { Faq } from './components/Faq'
@@ -12,21 +13,26 @@ import { Testimonials } from './components/Testimonials'
 
 function App() {
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <Plans />
-        <SiteGalleryCarousel />
-        <Benefits />
-        <GroupClasses />
-        <Location />
-        <Faq />
-        <Testimonials />
-      </main>
-      <CtaStrip />
-      <Footer />
-    </>
+    <MotionConfig reducedMotion="user">
+      <>
+        <a className="skip-link" href="#main-content">
+          Pular para o conteúdo
+        </a>
+        <Header />
+        <main id="main-content" tabIndex={-1}>
+          <Hero />
+          <Plans />
+          <SiteGalleryCarousel />
+          <GroupClasses />
+          <Benefits />
+          <Location />
+          <Faq />
+          <Testimonials />
+        </main>
+        <CtaStrip />
+        <Footer />
+      </>
+    </MotionConfig>
   )
 }
 
