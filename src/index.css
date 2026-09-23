@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  /* Paleta premium aprovada anteriormente: preto, marfim e dourado/bronze. */
-  --color-ink: #121212;
-  --color-bg-main: #faf9f6;
-  --color-bg-card: #ffffff;
-  --color-bg-dark: #101010;
-  --color-accent: #a9814a;
-  --color-accent-soft: #d9c6a3;
-  --color-text-muted: #6e6a64;
+  /* Identidade original: fundo preto, textos brancos e amarelo no lugar do verde-neon. */
+  --color-ink: #f4f4f2;
+  --color-bg-main: #0b0c0e;
+  --color-bg-card: #16171a;
+  --color-bg-dark: #090a0b;
+  --color-accent: #f2c94c;
+  --color-accent-soft: #ffe59a;
+  --color-text-muted: #a4a59e;
 
   --font-display: "Archivo", ui-sans-serif, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
   --color-border: color-mix(in srgb, var(--color-ink) 12%, transparent);
   --motion-fast: 180ms;
 }
