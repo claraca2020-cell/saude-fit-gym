@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { GROUP_CLASS_SLIDES } from './groupClassSlides'
+import { useSwipeNavigation } from '../hooks/useSwipeNavigation'
 
 interface GroupClassesCarouselProps {
   index: number
@@ -13,10 +14,11 @@ export function GroupClassesCarousel({ index, direction, onGo, onSelect }: Group
   const current = GROUP_CLASS_SLIDES[index]
   const previous = GROUP_CLASS_SLIDES[(index - 1 + GROUP_CLASS_SLIDES.length) % GROUP_CLASS_SLIDES.length]
   const next = GROUP_CLASS_SLIDES[(index + 1) % GROUP_CLASS_SLIDES.length]
+  const swipeHandlers = useSwipeNavigation(onGo)
 
   return (
     <div id="aulas-coletivas-carousel" className="mt-6 md:mt-12 scroll-mt-28">
-      <div className="relative overflow-hidden rounded-sm">
+      <div className="relative overflow-hidden rounded-sm" {...swipeHandlers}>
         <div className="relative aspect-[16/9] w-full md:aspect-[21/9]">
           <div className="absolute inset-0 flex gap-1 md:hidden">
             <img src={previous.image} alt="" aria-hidden="true" width={previous.width} height={previous.height} loading="lazy" decoding="async" className="h-full w-[13%] object-cover opacity-75" />

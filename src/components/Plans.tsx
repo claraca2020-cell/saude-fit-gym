@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Check, ChevronLeft, ChevronRight } from 'lucide-react'
 import { trackEvent } from '../lib/analytics'
+import { useSwipeNavigation } from '../hooks/useSwipeNavigation'
 
 const WHATSAPP_URL = 'https://wa.me/5561984010700'
 
@@ -120,6 +121,7 @@ function PlanColumn({
     setDirection(dir)
     setIndex((i) => (i + dir + slides.length) % slides.length)
   }
+  const swipeHandlers = useSwipeNavigation(go)
 
   return (
     <div
@@ -133,7 +135,7 @@ function PlanColumn({
         {category}
       </p>
 
-      <div className="relative mt-3 overflow-hidden md:mt-4 xl:flex-1 xl:flex xl:flex-col">
+      <div className="relative mt-3 overflow-hidden md:mt-4 xl:flex-1 xl:flex xl:flex-col" {...swipeHandlers}>
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.div
             key={current.title}

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react'
+import { useSwipeNavigation } from '../hooks/useSwipeNavigation'
 
 type Review = { name: string; time: string; text: string }
 
@@ -32,9 +33,10 @@ function ReviewCarousel({ reviews, groupIndex }: { reviews: Review[]; groupIndex
   const [index, setIndex] = useState(0)
   const review = reviews[index]
   const go = (direction: number) => setIndex((current) => (current + direction + reviews.length) % reviews.length)
+  const swipeHandlers = useSwipeNavigation(go)
 
   return (
-    <article className="flex min-h-[390px] flex-col rounded-sm border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5 md:min-h-[430px] md:p-6">
+    <article className="flex min-h-[390px] flex-col rounded-sm border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5 md:min-h-[430px] md:p-6" {...swipeHandlers}>
       <Stars />
       <p className="mt-5 flex-1 text-base leading-relaxed text-[var(--color-ink)] md:text-lg md:leading-[1.5]">“{review.text}”</p>
       <div className="mt-5 border-t border-[var(--color-border)] pt-4"><p className="text-base font-semibold text-[var(--color-ink)]">{review.name}</p><p className="mt-1 text-sm text-[var(--color-text-muted)]">{review.time} · Google Avaliações</p></div>

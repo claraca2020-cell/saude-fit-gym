@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react'
+import { useSwipeNavigation } from '../hooks/useSwipeNavigation'
 import areaMusculacao from '../assets/photos/optimized/area-musculacao.webp'
 import cardioEliptico from '../assets/photos/optimized/cardio-eliptico.webp'
 import cardioEsteiras from '../assets/photos/optimized/cardio-esteiras.webp'
@@ -28,6 +29,7 @@ export function SiteGalleryCarousel() {
   }
 
   const current = SLIDES[index]
+  const swipeHandlers = useSwipeNavigation(go)
 
   return (
     <section id="conheca-o-espaco" className="border-t border-[var(--color-border)] pt-2 pb-6 md:pt-6 md:pb-10">
@@ -42,7 +44,7 @@ export function SiteGalleryCarousel() {
           Uma volta pela Saúde Fit Gym.
         </h2>
 
-        <div className="relative mt-4 md:mt-8 overflow-hidden rounded-sm">
+        <div className="relative mt-4 overflow-hidden rounded-sm md:mt-8" {...swipeHandlers}>
           <div className="relative aspect-[4/3] w-full md:aspect-[16/10]">
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
               <motion.img
@@ -73,7 +75,7 @@ export function SiteGalleryCarousel() {
               Ver foto
             </button>
 
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 md:p-10">
+            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-4 md:p-6">
               <div>
                 <p className="text-xs font-medium uppercase tracking-[0.25em] text-[var(--color-text-muted)]">
                   {String(index + 1).padStart(2, '0')} / {String(SLIDES.length).padStart(2, '0')}

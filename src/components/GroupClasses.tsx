@@ -186,7 +186,7 @@ export function GroupClasses() {
               )
             })}
           </div>
-          <p className="mt-2 text-xs text-[var(--color-text-muted)] md:hidden">
+          <p className="mt-5 text-base font-bold uppercase tracking-[0.12em] text-[var(--color-accent)] md:text-lg">
             Deslize para ver o outro turno.
           </p>
         </div>
