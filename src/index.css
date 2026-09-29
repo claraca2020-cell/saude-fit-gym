@@ -270,8 +270,12 @@ section[id] {
     grid-column: 1;
     grid-row: 1;
     justify-self: start;
-    height: clamp(23px, 7vw, 31px);
+    width: auto;
+    height: auto;
     max-width: 100%;
+    max-height: clamp(23px, 7vw, 31px);
+    object-fit: contain;
+    display: block;
   }
   .footer-socials {
     grid-column: 2;
