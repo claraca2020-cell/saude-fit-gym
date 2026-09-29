@@ -1,7 +1,6 @@
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react'
-import { useSwipeNavigation } from '../hooks/useSwipeNavigation'
+import { useEffect, useState } from 'react'
+import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { SnapCarousel } from './SnapCarousel'
 import areaMusculacao from '../assets/photos/optimized/area-musculacao.webp'
 import cardioEliptico from '../assets/photos/optimized/cardio-eliptico.webp'
 import cardioEsteiras from '../assets/photos/optimized/cardio-esteiras.webp'
@@ -19,165 +18,49 @@ const SLIDES = [
 ]
 
 export function SiteGalleryCarousel() {
-  const [index, setIndex] = useState(0)
-  const [direction, setDirection] = useState(1)
-  const [isPhotoOpen, setIsPhotoOpen] = useState(false)
+  const [open, setOpen] = useState<number | null>(null)
+  const current = open != null ? SLIDES[open] : null
+  const step = (dir: number) => setOpen((i) => (i == null ? i : (i + dir + SLIDES.length) % SLIDES.length))
 
-  const go = (dir: number) => {
-    setDirection(dir)
-    setIndex((i) => (i + dir + SLIDES.length) % SLIDES.length)
-  }
-
-  const current = SLIDES[index]
-  const swipeHandlers = useSwipeNavigation(go)
+  useEffect(() => {
+    if (open == null) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(null)
+      if (e.key === 'ArrowRight') step(1)
+      if (e.key === 'ArrowLeft') step(-1)
+    }
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [open])
 
   return (
-    <section id="conheca-o-espaco" className="border-t border-[var(--color-border)] pt-2 pb-6 md:pt-6 md:pb-10">
+    <section id="conheca-o-espaco" className="border-t border-[var(--color-border)] py-10 md:py-16">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <p className="text-base font-bold uppercase tracking-[0.35em] text-[var(--color-accent)] md:text-sm">
-          Conheça o espaço
-        </p>
-        <h2
-          className="mt-4 text-3xl leading-tight text-[var(--color-ink)] sm:text-4xl md:text-5xl"
-          style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
-        >
+        <p className="text-sm font-bold uppercase tracking-[0.35em] text-[var(--color-accent)]">Conheça o espaço</p>
+        <h2 className="mt-3 mb-6 text-3xl leading-tight text-[var(--color-ink)] sm:text-4xl md:mb-10 md:text-5xl" style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>
           Uma volta pela Saúde Fit Gym.
         </h2>
-
-        <div className="relative mt-4 overflow-hidden rounded-sm md:mt-8" {...swipeHandlers}>
-          <div className="relative aspect-[4/3] w-full md:aspect-[16/10]">
-            <AnimatePresence initial={false} custom={direction} mode="popLayout">
-              <motion.img
-                key={current.image}
-                src={current.image}
-                alt={current.label}
-                width={current.width}
-                height={current.height}
-                loading="lazy"
-                decoding="async"
-                custom={direction}
-                initial={{ opacity: 0, x: 40 * direction }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 * direction }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </AnimatePresence>
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
-
-            <button
-              type="button"
-              onClick={() => setIsPhotoOpen(true)}
-              className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full bg-black/55 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition-colors hover:bg-black/75 md:right-6 md:top-6"
-            >
-              <Maximize2 size={16} />
-              Ver foto
-            </button>
-
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-4 md:p-6">
-              <div>
-                <p className="text-xs font-medium uppercase tracking-[0.25em] text-[var(--color-text-muted)]">
-                  {String(index + 1).padStart(2, '0')} / {String(SLIDES.length).padStart(2, '0')}
-                </p>
-                <h3
-                  className="mt-1 text-2xl text-white md:text-3xl"
-                  style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
-                >
-                  {current.label}
-                </h3>
-                <p className="mt-1 max-w-sm text-sm text-white/80">{current.description}</p>
-              </div>
-
-              <div className="flex shrink-0 gap-2">
-                <button
-                  type="button"
-                  onClick={() => go(-1)}
-                  aria-label="Slide anterior"
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-[var(--color-bg-main)] transition-colors hover:bg-white"
-                >
-                  <ChevronLeft size={18} />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => go(1)}
-                  aria-label="Próximo slide"
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-[var(--color-bg-main)] transition-colors hover:bg-white"
-                >
-                  <ChevronRight size={18} />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-3 flex justify-center gap-1">
-          {SLIDES.map((slide, i) => (
-            <button
-              key={slide.image}
-              type="button"
-              onClick={() => {
-                setDirection(i > index ? 1 : -1)
-                setIndex(i)
-              }}
-              aria-label={`Ver slide ${slide.label}`}
-              aria-pressed={i === index}
-              className="carousel-indicator"
-            />
-          ))}
-        </div>
+        <SnapCarousel slides={SLIDES} label="Fotos do espaço" onOpen={setOpen} />
       </div>
 
-      {isPhotoOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:p-10"
-          role="dialog"
-          aria-modal="true"
-          aria-label={`Foto ampliada: ${current.label}`}
-          onClick={() => setIsPhotoOpen(false)}
-        >
-          <div className="relative max-h-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
-            <img src={current.image} alt={current.label} width={current.width} height={current.height} className="max-h-[85vh] w-auto max-w-full object-contain" />
-            <button
-              type="button"
-              onClick={() => go(-1)}
-              className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/70 text-white transition-colors hover:bg-black"
-              aria-label="Foto anterior"
-            >
+      {current && (
+        <div className="fixed inset-0 z-[1100] flex items-center justify-center bg-black/90 p-4 md:p-10" role="dialog" aria-modal="true" aria-label={`Foto ampliada: ${current.label}`} onClick={() => setOpen(null)}>
+          <div className="relative max-h-full max-w-6xl" onClick={(e) => e.stopPropagation()}>
+            <img src={current.image} alt={current.label} width={current.width} height={current.height} className="max-h-[85vh] w-auto max-w-full rounded-sm object-contain" />
+            <button type="button" onClick={() => step(-1)} className="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-black/70 text-white hover:bg-black" aria-label="Foto anterior">
               <ChevronLeft size={22} />
             </button>
-            <button
-              type="button"
-              onClick={() => go(1)}
-              className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/70 text-white transition-colors hover:bg-black"
-              aria-label="Próxima foto"
-            >
+            <button type="button" onClick={() => step(1)} className="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-black/70 text-white hover:bg-black" aria-label="Próxima foto">
               <ChevronRight size={22} />
             </button>
-            <button
-              type="button"
-              onClick={() => setIsPhotoOpen(false)}
-              className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center rounded-full bg-black/70 text-white transition-colors hover:bg-black"
-              aria-label="Fechar foto ampliada"
-            >
+            <button type="button" onClick={() => setOpen(null)} className="absolute right-3 top-3 grid h-11 w-11 place-items-center rounded-full bg-black/70 text-white hover:bg-black" aria-label="Fechar foto ampliada">
               <X size={20} />
             </button>
-            <div className="absolute inset-x-0 bottom-4 flex items-center justify-center gap-2">
-              {SLIDES.map((slide, i) => (
-                <button
-                  key={slide.image}
-                  type="button"
-                  onClick={() => {
-                    setDirection(i > index ? 1 : -1)
-                    setIndex(i)
-                  }}
-                  aria-label={`Ver foto ${slide.label}`}
-                  aria-pressed={i === index}
-                  data-tone="light"
-                  className="carousel-indicator"
-                />
-              ))}
-            </div>
+            <p className="absolute inset-x-0 bottom-3 text-center text-sm text-white/90">{current.label}</p>
           </div>
         </div>
       )}

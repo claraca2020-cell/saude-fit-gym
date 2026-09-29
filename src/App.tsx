@@ -1,4 +1,3 @@
-import { MotionConfig } from 'framer-motion'
 import { Benefits } from './components/Benefits'
 import { CtaStrip } from './components/CtaStrip'
 import { Faq } from './components/Faq'
@@ -13,7 +12,6 @@ import { Testimonials } from './components/Testimonials'
 
 function App() {
   return (
-    <MotionConfig reducedMotion="user">
       <>
         <a className="skip-link" href="#main-content">
           Pular para o conteúdo
@@ -32,7 +30,6 @@ function App() {
         <CtaStrip />
         <Footer />
       </>
-    </MotionConfig>
   )
 }
 

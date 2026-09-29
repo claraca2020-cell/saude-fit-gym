@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
 import logoSaudeFit from '../assets/brand/logo-saudefit.png'
 
 const NAV_LINKS = [
@@ -44,7 +43,7 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-[1000] border-b border-white/5 bg-[rgba(15,15,15,0.4)] py-[15px] backdrop-blur-[10px]">
+      <header className="fixed inset-x-0 top-0 z-[1000] border-b border-white/5 bg-[rgba(12,12,12,0.92)] py-[15px] md:bg-[rgba(12,12,12,0.55)] md:backdrop-blur-[10px]">
         <Logo className="!hidden absolute left-3 top-1/2 -translate-y-[57%] md:!flex md:left-6" />
 
         <div className="relative mx-auto hidden max-w-[1400px] items-center px-6 md:flex md:px-12">
@@ -69,53 +68,38 @@ export function Header() {
             aria-controls="mobile-menu"
             className="relative z-[1001] flex h-11 w-11 flex-col items-center justify-center gap-[5px]"
           >
-            <motion.span
-              animate={isMenuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="block h-px w-6 bg-[var(--color-ink)]"
+            <span
+              className={`transition-transform duration-300 ease-out ${isMenuOpen ? 'translate-y-[6px] rotate-45' : ''} block h-px w-6 bg-[var(--color-ink)]`}
             />
-            <motion.span
-              animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-              transition={{ duration: 0.2 }}
-              className="block h-px w-6 bg-[var(--color-ink)]"
+            <span
+              className={`transition-opacity duration-200 ${isMenuOpen ? 'opacity-0' : ''} block h-px w-6 bg-[var(--color-ink)]`}
             />
-            <motion.span
-              animate={isMenuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="block h-px w-6 bg-[var(--color-ink)]"
+            <span
+              className={`transition-transform duration-300 ease-out ${isMenuOpen ? '-translate-y-[6px] -rotate-45' : ''} block h-px w-6 bg-[var(--color-ink)]`}
             />
           </button>
         </div>
       </header>
 
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: 'easeOut' }}
-            className="fixed inset-0 z-40 flex flex-col justify-center bg-[var(--color-bg-main)] px-8 md:hidden"
+      {isMenuOpen && (
+          <div
+            className="animate-fade-in fixed inset-0 z-40 flex flex-col justify-center bg-[var(--color-bg-main)] px-8 md:hidden"
           >
             <nav id="mobile-menu" aria-label="Navegação principal" className="flex flex-col gap-1">
               {NAV_LINKS.map((link, i) => (
-                <motion.a
+                <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.15 + i * 0.07, ease: 'easeOut' }}
-                  className="border-b border-[var(--color-border)] py-4 text-4xl text-[var(--color-ink)]"
-                  style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
+                  className="animate-fade-up border-b border-[var(--color-border)] py-4 text-4xl text-[var(--color-ink)]"
+                  style={{ fontFamily: 'var(--font-display)', fontWeight: 700, '--fade-delay': `${0.04 + i * 0.04}s` } as React.CSSProperties}
                 >
                   {link.label}
-                </motion.a>
+                </a>
               ))}
             </nav>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </>
   )
 }

@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useRef } from 'react'
 import { Bike, Dumbbell, Flame, PartyPopper, Zap, Sun, Moon } from 'lucide-react'
 import { PilatesMatIcon } from './PilatesMatIcon'
 import { GROUP_CLASS_SLIDES } from './groupClassSlides'
 import { GroupClassesCarousel } from './GroupClassesCarousel'
+import type { SnapCarouselHandle } from './SnapCarousel'
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
 
 const SCHEDULE = {
@@ -40,29 +41,18 @@ const CLASSES = [
 
 export function GroupClasses() {
   const ref = useRevealOnScroll<HTMLDivElement>()
-  const [index, setIndex] = useState(0)
-  const [direction, setDirection] = useState(1)
-
-  const go = (dir: number) => {
-    setDirection(dir)
-    setIndex((i) => (i + dir + GROUP_CLASS_SLIDES.length) % GROUP_CLASS_SLIDES.length)
-  }
-
-  const select = (i: number) => {
-    setDirection(i > index ? 1 : -1)
-    setIndex(i)
-  }
+  const carousel = useRef<SnapCarouselHandle>(null)
 
   const jumpToSlide = (slideLabel?: string) => {
     if (!slideLabel) return
     const targetIndex = GROUP_CLASS_SLIDES.findIndex((slide) => slide.label === slideLabel)
     if (targetIndex === -1) return
-    select(targetIndex)
     document.getElementById('aulas-coletivas-carousel')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    carousel.current?.goTo(targetIndex)
   }
 
   return (
-    <section id="aulas-coletivas" className="border-t border-[var(--color-border)] bg-[var(--color-bg-card)] py-6 md:pt-12 md:pb-10">
+    <section id="aulas-coletivas" className="border-t border-[var(--color-border)] bg-[var(--color-bg-card)] py-10 md:py-16">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <div className="mb-8 max-w-xl">
           <p className="text-base font-medium uppercase tracking-[0.35em] text-[var(--color-accent)] md:text-[0.7rem]">
@@ -79,29 +69,29 @@ export function GroupClasses() {
           </p>
         </div>
 
-        <div ref={ref} className="reveal-group mx-auto max-w-4xl grid grid-cols-2 gap-2 overflow-hidden rounded-sm sm:gap-3 lg:gap-4 lg:grid-cols-3">
+        <div ref={ref} className="reveal-group mx-auto max-w-6xl grid grid-cols-2 gap-2 overflow-hidden rounded-sm sm:gap-3 lg:grid-cols-3 lg:gap-8">
           {CLASSES.map(({ icon: Icon, name, description, slideLabel }) => (
             <button
               key={name}
               type="button"
               onClick={() => jumpToSlide(slideLabel)}
-              className={`group h-full flex flex-col bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm p-4 text-left transition-colors duration-300 hover:bg-[var(--color-bg-main)] sm:p-6 ${
+              className={`group h-full flex flex-col bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm p-4 text-left transition-colors duration-300 hover:bg-[var(--color-bg-main)] sm:p-6 lg:min-h-52 lg:items-center lg:p-8 lg:text-center ${
                 slideLabel ? 'cursor-pointer' : 'cursor-default'
               }`}
             >
               <Icon className="h-6 w-6 text-[var(--color-accent)] sm:h-7 sm:w-7" strokeWidth={1.5} />
               <h3
-                className="mt-3 text-base leading-tight text-[var(--color-accent)] sm:mt-6 sm:text-xl"
+                className="mt-3 text-base leading-tight text-[var(--color-accent)] sm:mt-6 sm:text-xl lg:mt-5"
                 style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}
               >
                 {name}
               </h3>
-              <p className="mt-1 flex-1 text-sm text-[var(--color-text-muted)] sm:mt-2 sm:text-sm">{description}</p>
+              <p className="mt-1 flex-1 text-sm text-[var(--color-text-muted)] sm:mt-2 sm:text-sm lg:mt-3">{description}</p>
             </button>
           ))}
         </div>
 
-        <GroupClassesCarousel index={index} direction={direction} onGo={go} onSelect={select} />
+        <GroupClassesCarousel handleRef={carousel} />
 
         <div className="mt-8 md:mt-16">
           <div className="flex items-center gap-3">
@@ -124,7 +114,7 @@ export function GroupClasses() {
               return (
                 <div
                   key={turno}
-                  className="flex min-w-[84vw] snap-start flex-col rounded-2xl border border-[var(--color-accent)] border-opacity-20 bg-black/5 p-3 backdrop-blur-sm transition-all duration-300 hover:border-opacity-30 hover:bg-black/10 md:min-w-0 md:rounded-3xl md:p-8"
+                  className="flex min-w-[84vw] snap-start flex-col rounded-2xl border border-[var(--color-accent)] border-opacity-20 bg-black/5 p-3 transition-colors duration-300 hover:border-opacity-30 hover:bg-black/10 md:min-w-0 md:rounded-3xl md:p-8"
                 >
                   {/* Card Header */}
                   <div className={`mb-3 flex items-center gap-2 ${isMatutino ? 'md:gap-3 md:mb-6' : 'md:gap-4 md:mb-8'}`}>

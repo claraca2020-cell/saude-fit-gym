@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
 import { Check, ChevronLeft, ChevronRight } from 'lucide-react'
 import { trackEvent } from '../lib/analytics'
 import { useSwipeNavigation } from '../hooks/useSwipeNavigation'
@@ -136,15 +135,10 @@ function PlanColumn({
       </p>
 
       <div className="relative mt-3 overflow-hidden md:mt-4 xl:flex-1 xl:flex xl:flex-col" {...swipeHandlers}>
-        <AnimatePresence initial={false} custom={direction} mode="popLayout">
-          <motion.div
+        <div
             key={current.title}
-            custom={direction}
-            initial={{ opacity: 0, x: 30 * direction }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -30 * direction }}
-            transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="flex flex-col text-left xl:h-full xl:justify-between"
+            style={{ '--dir': direction } as React.CSSProperties}
+            className="animate-slide-in flex flex-col text-left xl:h-full xl:justify-between"
           >
             <div className="h-7 mb-3">
               {current.badge && (
@@ -189,11 +183,10 @@ function PlanColumn({
             >
               Escolher {current.title}
             </a>
-          </motion.div>
-        </AnimatePresence>
+          </div>
       </div>
 
-      {slides.length > 1 && (
+{slides.length > 1 && (
         <div className="mt-6 flex items-center justify-between border-t border-current/10 pt-4">
           <button
             type="button"
@@ -252,7 +245,7 @@ export function Plans() {
   const currentCategory = planCategories[categoryIndex]
 
   return (
-    <section id="planos" className="border-t border-[var(--color-border)] py-6 md:pt-12 md:pb-20">
+    <section id="planos" className="border-t border-[var(--color-border)] py-10 md:py-16">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <h2
           className="text-left text-3xl uppercase text-[var(--color-ink)] md:text-5xl"
@@ -263,11 +256,9 @@ export function Plans() {
         <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--color-accent)]">Por aqui, temos:</p>
 
         <div className="relative mt-8 px-7 md:hidden">
-          <AnimatePresence initial={false} mode="wait">
-            <motion.div key={currentCategory.category} initial={{ opacity: 0, x: 18 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -18 }} transition={{ duration: 0.25, ease: 'easeOut' }}>
+          <div key={currentCategory.category} className="animate-slide-in">
               <PlanColumn category={currentCategory.category} slides={currentCategory.slides} />
-            </motion.div>
-          </AnimatePresence>
+            </div>
           <button type="button" onClick={() => changeCategory(-1)} aria-label="Plano anterior" className="absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg-card)] text-[var(--color-ink)] shadow-lg transition-transform hover:scale-105"><ChevronLeft size={17} /></button>
           <button type="button" onClick={() => changeCategory(1)} aria-label="Próximo plano" className="absolute right-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg-card)] text-[var(--color-ink)] shadow-lg transition-transform hover:scale-105"><ChevronRight size={17} /></button>
           <div className="mt-4 flex items-center justify-center gap-2">

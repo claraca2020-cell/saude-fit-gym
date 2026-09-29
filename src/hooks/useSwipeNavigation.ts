@@ -4,6 +4,7 @@ export function useSwipeNavigation(onSwipe: (direction: 1 | -1) => void) {
   const startX = useRef<number | null>(null)
 
   const onPointerDown = (event: React.PointerEvent<HTMLElement>) => {
+    if (event.button !== 0) return
     startX.current = event.clientX
   }
 
@@ -24,7 +25,6 @@ export function useSwipeNavigation(onSwipe: (direction: 1 | -1) => void) {
     onPointerCancel: () => {
       startX.current = null
     },
-    onPointerLeave: finishSwipe,
     style: { touchAction: 'pan-y' as const },
   }
 }

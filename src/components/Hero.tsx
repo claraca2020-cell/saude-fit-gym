@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { ArrowRight, Star } from 'lucide-react'
 import heroImage from '../assets/photos/optimized/capa-titulo.webp'
 
@@ -19,7 +18,7 @@ export function Hero() {
           height={941}
           className="absolute inset-0 h-full w-full object-cover"
           fetchPriority="high"
-          style={{ filter: 'contrast(1.1) saturate(0.9)', objectPosition: 'center 0%' }}
+          style={{ objectPosition: 'center 0%' }}
         />
         <div
           className="absolute inset-0"
@@ -30,11 +29,9 @@ export function Hero() {
         />
 
         <div className="hero-copy relative mx-auto w-full max-w-[1400px] px-6 pt-[16.5rem] pb-4 text-center md:px-12 md:pt-[21rem] md:pb-6">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-5 flex items-center justify-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/90"
+          <div
+            style={{ '--fade-delay': '0s' } as React.CSSProperties}
+            className="animate-fade-up mb-5 flex items-center justify-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/90"
           >
             <span>Riacho Fundo I</span>
             <span className="text-white/40">·</span>
@@ -43,25 +40,20 @@ export function Hero() {
               <Star size={12} fill="currentColor" strokeWidth={0} />
               Google Avaliações
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="mx-auto max-w-4xl text-4xl uppercase leading-[1.02] text-white sm:text-5xl md:text-7xl"
-            style={{ fontFamily: 'var(--font-display)', fontWeight: 800 }}
+          <h1
+            className="animate-fade-up mx-auto max-w-4xl text-4xl uppercase leading-[1.02] text-white sm:text-5xl md:text-7xl"
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 800, '--fade-delay': '0.08s' } as React.CSSProperties}
           >
             Em prol de uma vida
             <br />
             mais <span className="text-[var(--color-accent)]">saudável.</span>
-          </motion.h1>
+          </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          <div
+            style={{ '--fade-delay': '0.18s' } as React.CSSProperties}
+            className="animate-fade-up mt-10 flex flex-wrap items-center justify-center gap-4"
           >
             <a
               href="#planos"
@@ -79,15 +71,11 @@ export function Hero() {
             >
               Conhecer o espaço
             </a>
-          </motion.div>
+          </div>
         </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
+      <div
         className="hero-stats mx-auto flex max-w-[1400px] flex-row flex-nowrap justify-center gap-2 px-4 pb-8 sm:gap-3 sm:px-6 md:gap-4 md:px-12 md:pb-10"
       >
         {STATS.map((stat) => (
@@ -106,7 +94,7 @@ export function Hero() {
             </p>
           </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   )
 }
