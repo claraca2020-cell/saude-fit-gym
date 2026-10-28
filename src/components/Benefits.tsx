@@ -2,13 +2,13 @@ import { ShieldCheck } from 'lucide-react'
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
 
 const BENEFITS = [
+  'Avaliação de bioimpedância grátis para visitantes e alunos',
   '1º mês grátis com termo de cancelamento de outra academia',
-  '6 aulas coletivas/mês',
-  'Treinos personalizados pelo app',
+  '+ de 100 aulas coletivas/mês',
+  'Treinos personalizados pelo aplicativo e impressos',
   'Horário livre',
   '30 dias de garantia*',
-  'Aberto aos sábados, domingos e feriados',
-  'Free Pass para 1 convidado',
+  'Free Pass para 1 convidado (sex., sáb., dom. e feriados)',
   'Wi-Fi grátis',
 ]
 

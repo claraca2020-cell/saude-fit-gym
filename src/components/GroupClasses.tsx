@@ -16,10 +16,10 @@ const SCHEDULE = {
   ],
   Noturno: [
     { day: 'Segunda-feira', classes: '19:30 Pilates · 20:20 Fit Dance' },
-    { day: 'Terça-feira', classes: '19:30 Cross Training · 20:20 Flux Training' },
+    { day: 'Terça-feira', classes: '19:30 Cross Training · 20:00 Flux Training' },
     { day: 'Quarta-feira', classes: '19:30 Pilates · 20:20 Fit Dance' },
-    { day: 'Quinta-feira', classes: '19:30 Cross Training · 20:20 Flux Training' },
-    { day: 'Sexta-feira', classes: '19:30 Forró e Sertanejo · 20:40 Fit Dance' },
+    { day: 'Quinta-feira', classes: '19:30 Cross Training · 20:00 Flux Training' },
+    { day: 'Sexta-feira', classes: '19:30 Forró e Sertanejo · 20:20 Fit Dance' },
   ],
 } as const
 

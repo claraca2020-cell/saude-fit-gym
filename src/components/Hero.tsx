@@ -3,7 +3,7 @@ import heroImage from '../assets/photos/optimized/capa-titulo.webp'
 
 const STATS = [
   { value: 'Aberta', label: 'Nos feriados', highlight: true },
-  { value: '6', label: 'Aulas coletivas/mês', highlight: true },
+  { value: '+100', label: 'Aulas coletivas/mês', highlight: true },
   { value: '7 dias', label: 'Aberto sáb. e dom.', highlight: true },
 ]
 

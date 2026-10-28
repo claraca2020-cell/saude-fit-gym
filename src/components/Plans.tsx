@@ -88,7 +88,7 @@ const BIKE_INDOOR: PlanSlide[] = [
     title: '1 aula avulsa',
     price: '34,90',
     unit: 'Validade de 30 dias',
-    features: ['R$ 39,90 por aula', 'Aceitamos Gympass e TotalPass'],
+    features: ['A partir de R$ 15,60 por aula', 'Aceitamos Gympass e TotalPass'],
   },
   { title: '2 aulas experimentais', price: '44,90', unit: 'Validade de 30 dias', features: ['R$ 22,45 por aula'] },
   { title: '4 aulas', price: '99,90', unit: 'Validade de 30 dias', features: ['R$ 24,97 por aula'] },

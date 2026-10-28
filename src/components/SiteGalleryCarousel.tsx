@@ -12,7 +12,7 @@ const SLIDES = [
   { image: recepcao, label: 'Recepção', description: 'Ambiente monitorado 24h, pronto para te receber.', width: 1400, height: 788 },
   { image: areaMusculacao, label: 'Área de Musculação', description: 'Estações completas de peso livre, guiadas por número.', width: 1400, height: 788 },
   { image: salaFuncional, label: 'Sala Funcional', description: 'Espaço amplo para treinos funcionais e alongamento.', width: 1400, height: 788 },
-  { image: cardioEsteiras, label: 'Esteiras', description: 'Esteiras com vista para a rua.', width: 1600, height: 900 },
+  { image: cardioEsteiras, label: 'Esteiras e escadas', description: 'Esteiras e escadas com vista para a rua.', width: 1600, height: 900 },
   { image: cardioEliptico, label: 'Cardio', description: 'Elípticos e bikes para o seu cardio.', width: 1600, height: 900 },
   { image: musculacao, label: 'Musculação', description: 'Equipamentos guiados, do aquecimento à força máxima.', width: 1600, height: 900 },
 ]
