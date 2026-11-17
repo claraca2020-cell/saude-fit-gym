@@ -179,15 +179,15 @@ function PlanColumn({
               target="_blank"
               rel="noreferrer"
               onClick={() => trackEvent('whatsapp_click', { category, plan: current.title })}
-              className="mt-6 w-full cursor-pointer rounded-full px-6 py-3.5 text-center text-[0.68rem] font-bold uppercase tracking-[0.14em] plan-btn md:rounded-sm md:py-3 md:text-xs md:tracking-[0.15em] xl:mt-0"
+              className="mt-6 w-full cursor-pointer rounded-full px-6 py-3.5 text-center text-[0.68rem] font-bold uppercase tracking-[0.14em] plan-btn md:rounded-sm md:py-3 md:text-xs md:tracking-[0.15em] xl:mt-8"
             >
               Escolher {current.title}
             </a>
           </div>
       </div>
 
-{slides.length > 1 && (
-        <div className="mt-6 flex items-center justify-between border-t border-current/10 pt-4">
+      {slides.length > 1 && (
+        <div className="mt-6 flex items-center justify-between border-t border-[var(--color-border)] pt-3 md:mt-7">
           <button
             type="button"
             onClick={() => go(-1)}
